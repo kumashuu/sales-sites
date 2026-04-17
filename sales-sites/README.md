@@ -72,6 +72,15 @@ git branch -M main
 git push -u origin main
 ```
 
+**`Permission denied (publickey)`** が出る場合: `git@github.com`（SSH）を使っているが、PC の SSH 鍵が GitHub に未登録です。**HTTPS の remote に切り替える**のが手早いです。
+
+```bash
+git remote set-url origin https://github.com/<ユーザー>/<repo>.git
+git push -u origin main
+```
+
+パスワードの代わりに **Personal Access Token**（Classic なら `repo` 権限）を入力します。または `gh auth login`（GitHub CLI）でログインしてから `git push`。
+
 ### パターン B: 上位フォルダ（例: `company`）ごと push する
 
 リポジトリ直下に `sales-sites/` がある場合も、Vercel の **Root Directory** で `sales-sites/apps/...` を指定すれば同じです。
