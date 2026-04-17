@@ -1,0 +1,100 @@
+{
+  "siteKey": "demo-salon-b",
+  "template": "salon",
+  "brand": {
+    "name": "Studio 9",
+    "locationLine": "Cairns City"
+  },
+  "seo": {
+    "title": "Studio 9 | Hair & Colour",
+    "description": "Precision cuts, lived-in colour, and scalp-first care in the CBD."
+  },
+  "theme": { "accent": "rose" },
+  "nav": {
+    "ctaLabel": "Book Online",
+    "ctaHref": "mailto:book@studio9-demo.example"
+  },
+  "hero": {
+    "eyebrow": "Independent salon · Colour specialists",
+    "title": "Studio",
+    "highlight": "9",
+    "descriptionLines": [
+      "Hair that moves with humidity, not against it.",
+      "FNQ-tested products, editorial techniques."
+    ],
+    "primaryCta": { "label": "Request Appointment", "href": "mailto:book@studio9-demo.example" },
+    "secondaryCta": { "label": "Services", "href": "#menu" },
+    "backgroundImage": "/hero.jpg",
+    "meta": [
+      { "icon": "🕔", "text": "Tue–Sat 9am – 7pm" },
+      { "icon": "📍", "text": "Level 1, 42 Lake St" },
+      { "icon": "✨", "text": "New client consult" }
+    ]
+  },
+  "features": [
+    {
+      "icon": "💇",
+      "title": "Cut & Style",
+      "desc": "Texture-first shapes for tropical climates — low maintenance, high polish."
+    },
+    {
+      "icon": "🎨",
+      "title": "Colour",
+      "desc": "Balayage, foilyage, and glossing with bond builders in every service."
+    },
+    {
+      "icon": "🧴",
+      "title": "Treatments",
+      "desc": "K18, Olaplex, and scalp detox rituals tailored to your routine."
+    }
+  ],
+  "gallery": {
+    "eyebrow": "Portfolio",
+    "title": "Recent Work",
+    "images": [
+      { "src": "/food-yakitori.jpg", "alt": "Colour work" },
+      { "src": "/food-niku.jpg", "alt": "Cut & finish" },
+      { "src": "/food-edamame.jpg", "alt": "Salon floor" }
+    ]
+  },
+  "menu": {
+    "sectionEyebrow": "Services",
+    "sectionTitle": "Menu & Pricing",
+    "footerNote": "Patch test required 48h before first-time colour.",
+    "items": [
+      { "name": "Cut & Blowdry", "desc": "Includes style finish", "price": "from $95" },
+      { "name": "Express Gloss", "desc": "Shine refresh, 6-week fade", "price": "$85" },
+      { "name": "Half Head Foils", "desc": "T-section or face frame", "price": "from $180" },
+      { "name": "Full Balayage", "desc": "Toners included", "price": "from $280" },
+      { "name": "Treatment Add-on", "desc": "K18 or moisture mask", "price": "$45" },
+      { "name": "Blowdry", "desc": "Hot tool finish", "price": "$65" }
+    ]
+  },
+  "contact": {
+    "sectionEyebrow": "Location",
+    "sectionTitle": "Studio 9",
+    "address": {
+      "label": "Address",
+      "lines": ["Level 1, 42 Lake St", "Cairns City QLD 4870, Australia"]
+    },
+    "hours": {
+      "label": "Hours",
+      "lines": ["Tue – Sat", "9:00am – 7:00pm"]
+    },
+    "phone": "0400 000 222",
+    "email": "book@studio9-demo.example",
+    "social": [
+      { "label": "Instagram", "href": "https://instagram.com" },
+      { "label": "Facebook", "href": "https://facebook.com" }
+    ]
+  },
+  "reservation": {
+    "title": "Book your consult",
+    "subtitle": "We reply within one business day with timing options."
+  },
+  "footer": {
+    "brandLine": "Studio 9",
+    "subLine": "Hair & Colour · Cairns City",
+    "year": 2026
+  }
+}

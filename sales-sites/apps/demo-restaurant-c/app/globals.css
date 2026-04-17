@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+/* このアプリ配下（app/・各ルート） */
+@source "..";
+/* 共有 UI（@sales-sites/ui のユーティリティを生成するために必須） */
+@source "../../../packages/ui/src";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* ページ本体は Tailwind（SalesSite）が担当。body はレイアウトで bg-zinc-950 を指定 */
+body {
+  margin: 0;
+}

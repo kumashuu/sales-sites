@@ -1,0 +1,100 @@
+{
+  "siteKey": "demo-kushi",
+  "template": "restaurant",
+  "brand": {
+    "name": "KUSHI",
+    "locationLine": "Palm Cove, Cairns"
+  },
+  "seo": {
+    "title": "KUSHI | Yakitori Bar & Japanese Restaurant",
+    "description": "Authentic Japanese charcoal grilling with ocean views over Palm Cove, Cairns."
+  },
+  "theme": { "accent": "amber" },
+  "nav": {
+    "ctaLabel": "Reserve a Table",
+    "ctaHref": "mailto:booking@kushiqld.com"
+  },
+  "hero": {
+    "eyebrow": "Palm Cove's only yakitori bar",
+    "title": "串",
+    "highlight": "KUSHI",
+    "descriptionLines": [
+      "Smoke rising from binchotan charcoal.",
+      "Sea breeze rolling in off the Coral Sea."
+    ],
+    "primaryCta": { "label": "Book a Table", "href": "mailto:booking@kushiqld.com" },
+    "secondaryCta": { "label": "View Menu", "href": "#menu" },
+    "backgroundImage": "/hero.jpg",
+    "meta": [
+      { "icon": "🕔", "text": "Daily 5pm – 9:30pm" },
+      { "icon": "📍", "text": "Floor 2, 73 Williams Esplanade" },
+      { "icon": "🍶", "text": "BYO Welcome" }
+    ]
+  },
+  "features": [
+    {
+      "icon": "🔥",
+      "title": "Charcoal Yakitori",
+      "desc": "Each skewer grilled to order over white binchotan. Wagyu, chicken, prawn — all kissed by charcoal smoke."
+    },
+    {
+      "icon": "🌊",
+      "title": "Ocean Views",
+      "desc": "Watch the evening light fade over Palm Cove from our open balcony. The Coral Sea is part of the meal."
+    },
+    {
+      "icon": "🍶",
+      "title": "BYO Friendly",
+      "desc": "Bring your favourite wine or sake. We'll take care of everything else."
+    }
+  ],
+  "gallery": {
+    "eyebrow": "Gallery",
+    "title": "From Our Kitchen",
+    "images": [
+      { "src": "/food-yakitori.jpg", "alt": "Charcoal Yakitori" },
+      { "src": "/food-niku.jpg", "alt": "Grilled Meat" },
+      { "src": "/food-edamame.jpg", "alt": "Edamame" }
+    ]
+  },
+  "menu": {
+    "sectionEyebrow": "Our Menu",
+    "sectionTitle": "Signature Dishes",
+    "footerNote": "Seasonal menu — ask us what's fresh tonight.",
+    "items": [
+      { "name": "Wagyu Beef Skewer", "desc": "A5 wagyu, tare glaze, spring onion", "price": "$8" },
+      { "name": "Chicken Thigh Yakitori", "desc": "Charcoal grilled, house tare sauce", "price": "$5" },
+      { "name": "Seafood Tempura", "desc": "Tiger prawn, calamari, seasonal veg", "price": "$24" },
+      { "name": "Assorted Sashimi", "desc": "Chef's selection of fresh daily catch", "price": "$32" },
+      { "name": "Salmon Belly Skewer", "desc": "Salt-grilled, yuzu dressing", "price": "$7" },
+      { "name": "Edamame", "desc": "Salted, served warm", "price": "$6" }
+    ]
+  },
+  "contact": {
+    "sectionEyebrow": "Find Us",
+    "sectionTitle": "Visit Kushi",
+    "address": {
+      "label": "Address",
+      "lines": ["Floor 2, 73 Williams Esplanade", "Palm Cove QLD 4879, Australia"]
+    },
+    "hours": {
+      "label": "Hours",
+      "lines": ["Monday – Sunday", "5:00pm – 9:30pm"]
+    },
+    "phone": "0451 421 015",
+    "email": "booking@kushiqld.com",
+    "social": [
+      { "label": "Instagram", "href": "https://www.instagram.com/kushicairns" },
+      { "label": "Facebook", "href": "https://www.facebook.com/KushiCairns" }
+    ]
+  },
+  "reservation": {
+    "title": "Make a Reservation",
+    "subtitle": "Tables fill fast on weekend evenings — don't miss out."
+  },
+  "footer": {
+    "brandLine": "KUSHI",
+    "subLine": "Yakitori Bar & Japanese Restaurant · Palm Cove, Cairns",
+    "year": 2026
+  }
+}

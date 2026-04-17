@@ -1,0 +1,21 @@
+{
+  "name": "sales-sites",
+  "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "dev:restaurant": "pnpm --filter @sales-sites/demo-restaurant-c dev",
+    "dev:cafe": "pnpm --filter @sales-sites/demo-cafe-a dev",
+    "dev:salon": "pnpm --filter @sales-sites/demo-salon-b dev"
+  },
+  "devDependencies": {
+    "@tailwindcss/oxide-darwin-arm64": "^4.2.2",
+    "turbo": "^2.5.4",
+    "typescript": "^5.8.3"
+  },
+  "packageManager": "pnpm@10.11.0"
+}

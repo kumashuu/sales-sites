@@ -1,0 +1,100 @@
+{
+  "siteKey": "demo-cafe-a",
+  "template": "cafe",
+  "brand": {
+    "name": "Bloom & Brew",
+    "locationLine": "Edge Hill, Cairns"
+  },
+  "seo": {
+    "title": "Bloom & Brew | Specialty Coffee & Brunch",
+    "description": "Single-origin espresso, house-made pastries, and a leafy courtyard in Edge Hill."
+  },
+  "theme": { "accent": "emerald" },
+  "nav": {
+    "ctaLabel": "Book a Table",
+    "ctaHref": "mailto:hello@bloombrew-demo.example"
+  },
+  "hero": {
+    "eyebrow": "Third-wave coffee · All-day brunch",
+    "title": "Bloom",
+    "highlight": "& Brew",
+    "descriptionLines": [
+      "Slow mornings, fast shots.",
+      "Roasted weekly in Far North Queensland."
+    ],
+    "primaryCta": { "label": "Reserve", "href": "mailto:hello@bloombrew-demo.example" },
+    "secondaryCta": { "label": "See Menu", "href": "#menu" },
+    "backgroundImage": "/hero.jpg",
+    "meta": [
+      { "icon": "🕔", "text": "Mon–Sun 6:30am – 2pm" },
+      { "icon": "📍", "text": "271 Pease St, Edge Hill" },
+      { "icon": "🌿", "text": "Dog-friendly deck" }
+    ]
+  },
+  "features": [
+    {
+      "icon": "☕",
+      "title": "Single Origin",
+      "desc": "Rotating microlots on espresso and filter. Ask for today's guest roast."
+    },
+    {
+      "icon": "🥐",
+      "title": "House Pastries",
+      "desc": "Croissants, galettes, and vegan muffins baked before sunrise."
+    },
+    {
+      "icon": "🌤️",
+      "title": "Courtyard",
+      "desc": "Covered outdoor seating — natural light without the tropical midday heat."
+    }
+  ],
+  "gallery": {
+    "eyebrow": "Inside",
+    "title": "The Space",
+    "images": [
+      { "src": "/food-yakitori.jpg", "alt": "Coffee bar" },
+      { "src": "/food-niku.jpg", "alt": "Brunch plate" },
+      { "src": "/food-edamame.jpg", "alt": "Pastries" }
+    ]
+  },
+  "menu": {
+    "sectionEyebrow": "Menu",
+    "sectionTitle": "Signatures",
+    "footerNote": "GF & vegan swaps available — chat to our team.",
+    "items": [
+      { "name": "Flat White", "desc": "Double ristretto, silky microfoam", "price": "$5" },
+      { "name": "Cold Brew Tonic", "desc": "24h brew, citrus, soda", "price": "$7.5" },
+      { "name": "Smashed Avo", "desc": "Sourdough, feta, dukkah, poached eggs", "price": "$19" },
+      { "name": "Chilli Scramble", "desc": "Free-range eggs, sourdough, herbs", "price": "$18" },
+      { "name": "Seasonal Fruit Bowl", "desc": "Coconut yoghurt, granola, honey", "price": "$16" },
+      { "name": "Kids Toast & Juice", "desc": "Banana, honey, side OJ", "price": "$9" }
+    ]
+  },
+  "contact": {
+    "sectionEyebrow": "Visit",
+    "sectionTitle": "Bloom & Brew",
+    "address": {
+      "label": "Address",
+      "lines": ["271 Pease St", "Edge Hill QLD 4870, Australia"]
+    },
+    "hours": {
+      "label": "Hours",
+      "lines": ["Mon – Sun", "6:30am – 2:00pm"]
+    },
+    "phone": "0400 000 111",
+    "email": "hello@bloombrew-demo.example",
+    "social": [
+      { "label": "Instagram", "href": "https://instagram.com" },
+      { "label": "Facebook", "href": "https://facebook.com" }
+    ]
+  },
+  "reservation": {
+    "title": "Weekends book out",
+    "subtitle": "Message us for groups of 6+ or event hire."
+  },
+  "footer": {
+    "brandLine": "Bloom & Brew",
+    "subLine": "Specialty Coffee · Edge Hill, Cairns",
+    "year": 2026
+  }
+}
