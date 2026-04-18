@@ -38,24 +38,21 @@
     "secondaryCta": { "label": "Menu preview", "href": "#menu" },
     "backgroundImage": "/hero.jpg",
     "meta": [
-      { "icon": "🕔", "text": "Daily 6:30am – 2:00pm (confirm online)" },
-      { "icon": "📍", "text": "Gympie Terrace & The Cockleshell" },
-      { "icon": "🌊", "text": "Waterfront dining" }
+      { "text": "Daily 6:30am – 2:00pm (confirm online)" },
+      { "text": "Gympie Terrace & The Cockleshell" },
+      { "text": "Waterfront dining" }
     ]
   },
   "features": [
     {
-      "icon": "🌊",
       "title": "Waterfront",
       "desc": "Sit by the Noosa River at Gympie Terrace & The Cockleshell — easy going meals with a view."
     },
     {
-      "icon": "🍳",
       "title": "Breakfast & brunch",
       "desc": "Big brekky plates, eggs benedict-style dishes, toasted bruschetta, and lighter bowl options for the morning."
     },
     {
-      "icon": "🍛",
       "title": "Japanese-inspired lunch",
       "desc": "Think katsu curry, poke-style bowls, and kimchi pork bowl — fresh, colourful plates for the afternoon."
     }
@@ -144,13 +141,11 @@
     },
     "phone": "0400 000 222",
     "email": "bookings@demo-placeholder.com.au",
-    "social": [
-      { "label": "Official site", "href": "https://cafe-tokyo.goto-where.com/" },
-      {
-        "label": "Location (maps)",
-        "href": "https://www.google.com/maps/search/Cafe+Tokyo+Noosaville"
-      }
-    ]
+    "social": {
+      "instagram": "https://www.instagram.com/cafe-tokyo-noosaville/",
+      "facebook": "https://www.facebook.com/cafe-tokyo-noosaville/",
+      "maps": "https://www.google.com/maps/search/?api=1&query=Cafe%20Tokyo%20Noosaville"
+    }
   },
   "reservation": {
     "title": "Bookings & updates",

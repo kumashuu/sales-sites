@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import type { SiteConfig } from "@sales-sites/lib";
 import { resolveAddressMapHref, telHref } from "@sales-sites/lib";
+import { ReservationSocialLinks } from "./reservation-social-links";
 
 type Accent = SiteConfig["theme"]["accent"];
 
@@ -193,9 +194,7 @@ export function SalesSite({ site }: { site: SiteConfig }) {
             }
           >
             {site.hero.meta.map((m) => (
-              <span key={m.text}>
-                {m.icon} {m.text}
-              </span>
+              <span key={m.text}>{m.text}</span>
             ))}
           </div>
         </div>
@@ -218,7 +217,14 @@ export function SalesSite({ site }: { site: SiteConfig }) {
                   : `rounded-2xl border border-zinc-800 bg-zinc-900 p-8 transition-colors ${a.borderCard}`
               }
             >
-              <div className="mb-4 text-4xl">{f.icon}</div>
+              <div
+                className={
+                  p
+                    ? "mb-4 h-1 w-10 rounded-full bg-[var(--p-accent)]"
+                    : `mb-4 h-1 w-10 rounded-full ${a.bg}`
+                }
+                aria-hidden
+              />
               <h3
                 className={
                   p
@@ -355,9 +361,14 @@ export function SalesSite({ site }: { site: SiteConfig }) {
             </h2>
             <div className={p ? "space-y-5 text-[var(--p-sub)]" : "space-y-5 text-zinc-300"}>
               <div className="flex gap-4">
-                <span className={p ? "text-xl text-[var(--p-accent)]" : `text-xl ${a.text}`}>
-                  📍
-                </span>
+                <span
+                  className={
+                    p
+                      ? "mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--p-accent)]"
+                      : `mt-1.5 h-2 w-2 shrink-0 rounded-full ${a.bg}`
+                  }
+                  aria-hidden
+                />
                 <div>
                   <p className={p ? "font-semibold text-[var(--p-text)]" : "font-semibold text-white"}>
                     {site.contact.address.label}
@@ -375,15 +386,19 @@ export function SalesSite({ site }: { site: SiteConfig }) {
                         : `mt-3 inline-flex items-center gap-1.5 rounded-full border border-zinc-500 px-3 py-1.5 text-sm font-medium transition-colors ${a.borderNav} ${a.textHover}`
                     }
                   >
-                    <span aria-hidden>🗺</span>
                     {addressMapLabel}
                   </a>
                 </div>
               </div>
               <div className="flex gap-4">
-                <span className={p ? "text-xl text-[var(--p-accent)]" : `text-xl ${a.text}`}>
-                  🕔
-                </span>
+                <span
+                  className={
+                    p
+                      ? "mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--p-accent)]"
+                      : `mt-1.5 h-2 w-2 shrink-0 rounded-full ${a.bg}`
+                  }
+                  aria-hidden
+                />
                 <div>
                   <p className={p ? "font-semibold text-[var(--p-text)]" : "font-semibold text-white"}>
                     {site.contact.hours.label}
@@ -394,9 +409,14 @@ export function SalesSite({ site }: { site: SiteConfig }) {
                 </div>
               </div>
               <div className="flex gap-4">
-                <span className={p ? "text-xl text-[var(--p-accent)]" : `text-xl ${a.text}`}>
-                  📞
-                </span>
+                <span
+                  className={
+                    p
+                      ? "mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--p-accent)]"
+                      : `mt-1.5 h-2 w-2 shrink-0 rounded-full ${a.bg}`
+                  }
+                  aria-hidden
+                />
                 <div>
                   <p className={p ? "font-semibold text-[var(--p-text)]" : "font-semibold text-white"}>
                     Phone
@@ -405,9 +425,14 @@ export function SalesSite({ site }: { site: SiteConfig }) {
                 </div>
               </div>
               <div className="flex gap-4">
-                <span className={p ? "text-xl text-[var(--p-accent)]" : `text-xl ${a.text}`}>
-                  ✉️
-                </span>
+                <span
+                  className={
+                    p
+                      ? "mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--p-accent)]"
+                      : `mt-1.5 h-2 w-2 shrink-0 rounded-full ${a.bg}`
+                  }
+                  aria-hidden
+                />
                 <div>
                   <p className={p ? "font-semibold text-[var(--p-text)]" : "font-semibold text-white"}>
                     Email
@@ -439,7 +464,7 @@ export function SalesSite({ site }: { site: SiteConfig }) {
                     : `flex w-full items-center justify-center gap-2 rounded-full py-4 font-bold ${onAccent} transition-colors ${a.bg} ${a.bgHover}`
                 }
               >
-                📞 Call {site.contact.phone}
+                Call {site.contact.phone}
               </a>
               <a
                 href={`mailto:${site.contact.email}`}
@@ -449,32 +474,15 @@ export function SalesSite({ site }: { site: SiteConfig }) {
                     : `flex w-full items-center justify-center gap-2 rounded-full border border-zinc-600 py-4 transition-colors ${a.borderNav} ${a.textHover}`
                 }
               >
-                ✉️ Email Us
+                Email us
               </a>
             </div>
-            <div
-              className={
-                p
-                  ? "mt-8 flex justify-center gap-6 border-t border-[color:var(--p-secondary)] pt-6"
-                  : "mt-8 flex justify-center gap-6 border-t border-zinc-800 pt-6"
-              }
-            >
-              {site.contact.social.map((s) => (
-                <a
-                  key={s.href}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={
-                    p
-                      ? "text-sm text-[var(--p-sub)] transition-colors hover:text-[var(--p-accent)]"
-                      : `text-sm text-zinc-400 transition-colors ${a.textHover}`
-                  }
-                >
-                  {s.label}
-                </a>
-              ))}
-            </div>
+            <ReservationSocialLinks
+              social={site.contact.social}
+              address={site.contact.address}
+              palette={p}
+              accent={site.theme.accent}
+            />
           </div>
         </div>
       </section>

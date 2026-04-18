@@ -26,24 +26,21 @@
     "secondaryCta": { "label": "View Menu", "href": "#menu" },
     "backgroundImage": "/hero.jpg",
     "meta": [
-      { "icon": "🕔", "text": "Daily 5pm – 9:30pm" },
-      { "icon": "📍", "text": "Floor 2, 73 Williams Esplanade" },
-      { "icon": "🍶", "text": "BYO Welcome" }
+      { "text": "Daily 5pm – 9:30pm" },
+      { "text": "Floor 2, 73 Williams Esplanade" },
+      { "text": "BYO Welcome" }
     ]
   },
   "features": [
     {
-      "icon": "🔥",
       "title": "Charcoal Yakitori",
       "desc": "Each skewer grilled to order over white binchotan. Wagyu, chicken, prawn — all kissed by charcoal smoke."
     },
     {
-      "icon": "🌊",
       "title": "Ocean Views",
       "desc": "Watch the evening light fade over Palm Cove from our open balcony. The Coral Sea is part of the meal."
     },
     {
-      "icon": "🍶",
       "title": "BYO Friendly",
       "desc": "Bring your favourite wine or sake. We'll take care of everything else."
     }
@@ -83,10 +80,10 @@
     },
     "phone": "0451 421 015",
     "email": "booking@kushiqld.com",
-    "social": [
-      { "label": "Instagram", "href": "https://www.instagram.com/kushicairns" },
-      { "label": "Facebook", "href": "https://www.facebook.com/KushiCairns" }
-    ]
+    "social": {
+      "instagram": "https://www.instagram.com/kushicairns",
+      "facebook": "https://www.facebook.com/KushiCairns"
+    }
   },
   "reservation": {
     "title": "Make a Reservation",

@@ -26,24 +26,21 @@
     "secondaryCta": { "label": "See Menu", "href": "#menu" },
     "backgroundImage": "/hero.jpg",
     "meta": [
-      { "icon": "🕔", "text": "Mon–Sun 6:30am – 2pm" },
-      { "icon": "📍", "text": "271 Pease St, Edge Hill" },
-      { "icon": "🌿", "text": "Dog-friendly deck" }
+      { "text": "Mon–Sun 6:30am – 2pm" },
+      { "text": "271 Pease St, Edge Hill" },
+      { "text": "Dog-friendly deck" }
     ]
   },
   "features": [
     {
-      "icon": "☕",
       "title": "Single Origin",
       "desc": "Rotating microlots on espresso and filter. Ask for today's guest roast."
     },
     {
-      "icon": "🥐",
       "title": "House Pastries",
       "desc": "Croissants, galettes, and vegan muffins baked before sunrise."
     },
     {
-      "icon": "🌤️",
       "title": "Courtyard",
       "desc": "Covered outdoor seating — natural light without the tropical midday heat."
     }
@@ -83,10 +80,10 @@
     },
     "phone": "0400 000 111",
     "email": "hello@bloombrew-demo.example",
-    "social": [
-      { "label": "Instagram", "href": "https://instagram.com" },
-      { "label": "Facebook", "href": "https://facebook.com" }
-    ]
+    "social": {
+      "instagram": "https://instagram.com",
+      "facebook": "https://facebook.com"
+    }
   },
   "reservation": {
     "title": "Weekends book out",

@@ -36,9 +36,11 @@ export interface SiteConfig {
     primaryCta: { label: string; href: string };
     secondaryCta: { label: string; href: string };
     backgroundImage: string;
-    meta: { icon: string; text: string }[];
+    /** 絵文字は使わない（共通設計） */
+    meta: { text: string }[];
   };
-  features: { icon: string; title: string; desc: string }[];
+  /** 絵文字は使わない。見出し上の装飾はテーマ色のバーで表示 */
+  features: { title: string; desc: string }[];
   gallery: {
     title: string;
     eyebrow: string;
@@ -64,7 +66,12 @@ export interface SiteConfig {
     hours: { label: string; lines: string[] };
     phone: string;
     email: string;
-    social: { label: string; href: string }[];
+    /** 予約カード下部の固定3種（未設定のリンクは表示しない）。maps 省略時は address から地図URLを生成 */
+    social: {
+      instagram?: string;
+      facebook?: string;
+      maps?: string;
+    };
   };
   reservation: {
     title: string;

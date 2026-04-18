@@ -26,24 +26,21 @@
     "secondaryCta": { "label": "Services", "href": "#menu" },
     "backgroundImage": "/hero.jpg",
     "meta": [
-      { "icon": "🕔", "text": "Tue–Sat 9am – 7pm" },
-      { "icon": "📍", "text": "Level 1, 42 Lake St" },
-      { "icon": "✨", "text": "New client consult" }
+      { "text": "Tue–Sat 9am – 7pm" },
+      { "text": "Level 1, 42 Lake St" },
+      { "text": "New client consult" }
     ]
   },
   "features": [
     {
-      "icon": "💇",
       "title": "Cut & Style",
       "desc": "Texture-first shapes for tropical climates — low maintenance, high polish."
     },
     {
-      "icon": "🎨",
       "title": "Colour",
       "desc": "Balayage, foilyage, and glossing with bond builders in every service."
     },
     {
-      "icon": "🧴",
       "title": "Treatments",
       "desc": "K18, Olaplex, and scalp detox rituals tailored to your routine."
     }
@@ -83,10 +80,10 @@
     },
     "phone": "0400 000 222",
     "email": "book@studio9-demo.example",
-    "social": [
-      { "label": "Instagram", "href": "https://instagram.com" },
-      { "label": "Facebook", "href": "https://facebook.com" }
-    ]
+    "social": {
+      "instagram": "https://instagram.com",
+      "facebook": "https://facebook.com"
+    }
   },
   "reservation": {
     "title": "Book your consult",
