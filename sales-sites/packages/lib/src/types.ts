@@ -15,6 +15,14 @@ export interface SiteConfig {
   };
   theme: {
     accent: AccentKey;
+    /** 指定時はライト系UI。未指定は従来のダークテーマ + accent */
+    palette?: {
+      background: string;
+      mainText: string;
+      subText: string;
+      accent: string;
+      secondary: string;
+    };
   };
   nav: {
     ctaLabel: string;
@@ -45,7 +53,14 @@ export interface SiteConfig {
   contact: {
     sectionEyebrow: string;
     sectionTitle: string;
-    address: { label: string; lines: string[] };
+    address: {
+      label: string;
+      lines: string[];
+      /** 省略時は住所行から Google マップ検索 URL を自動生成 */
+      mapHref?: string;
+      /** 地図リンクの表示文言（省略時は "Open in maps"） */
+      mapLinkLabel?: string;
+    };
     hours: { label: string; lines: string[] };
     phone: string;
     email: string;
