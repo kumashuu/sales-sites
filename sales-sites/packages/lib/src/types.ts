@@ -2,6 +2,15 @@ export type AccentKey = "amber" | "emerald" | "rose";
 
 export type SiteTemplate = "restaurant" | "cafe" | "salon";
 
+/**
+ * サイト全体の欧文・和文のベースフォント。
+ * - `notoSansJp`: Noto Sans JP（Google Fonts）
+ * - `vabiDasabi`: 手書き丸みの雰囲気 → Web では **Kiwi Maru**（Google Fonts）を使用
+ * - `hiroMisake`: 筆文字風 → Web では **Yuji Boku**（Google Fonts）を使用
+ * （実名フォントファイルを自前で持つ場合はレイアウトの `localFont` に差し替え可能）
+ */
+export type SiteFontPreset = "notoSansJp" | "vabiDasabi" | "hiroMisake";
+
 export interface SiteConfig {
   siteKey: string;
   template: SiteTemplate;
@@ -15,6 +24,8 @@ export interface SiteConfig {
   };
   theme: {
     accent: AccentKey;
+    /** 未指定時は `notoSansJp` */
+    fontPreset?: SiteFontPreset;
     /** 指定時はライト系UI。未指定は従来のダークテーマ + accent */
     palette?: {
       background: string;
@@ -22,6 +33,8 @@ export interface SiteConfig {
       subText: string;
       accent: string;
       secondary: string;
+      /** 暖色の灯り・アクセント（省略時は eyebrow 等は accent を使用） */
+      highlight?: string;
     };
   };
   nav: {

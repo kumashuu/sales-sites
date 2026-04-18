@@ -1,97 +1,152 @@
 {
-  "siteKey": "demo-salon-b",
-  "template": "salon",
+  "siteKey": "ganbaranba-cairns-demo",
+  "template": "restaurant",
   "brand": {
-    "name": "Studio 9",
-    "locationLine": "Cairns City"
+    "name": "GANBARANBA",
+    "locationLine": "Cairns CBD · Boland's Centre"
   },
   "seo": {
-    "title": "Studio 9 | Hair & Colour",
-    "description": "Precision cuts, lived-in colour, and scalp-first care in the CBD."
+    "title": "GANBARANBA | Tonkotsu Ramen · Cairns",
+    "description": "Hakata-style tonkotsu ramen, chashu, and house favourites — Shop 7/8, 14 Spence St, Cairns City. Lunch & dinner; closed Wednesdays."
   },
-  "theme": { "accent": "rose" },
+  "theme": {
+    "accent": "amber",
+    "fontPreset": "notoSansJp",
+    "palette": {
+      "background": "#F4F1EA",
+      "mainText": "#2B2B2B",
+      "subText": "#5C534A",
+      "accent": "#D32F2F",
+      "secondary": "#C49A6C",
+      "highlight": "#8C1D18"
+    }
+  },
   "nav": {
-    "ctaLabel": "Book Online",
-    "ctaHref": "mailto:book@studio9-demo.example"
+    "ctaLabel": "Menu",
+    "ctaHref": "#menu"
   },
   "hero": {
-    "eyebrow": "Independent salon · Colour specialists",
-    "title": "Studio",
-    "highlight": "9",
+    "eyebrow": "Japanese ramen · Since Cairns locals’ favourite nights",
+    "title": "GANBARAN",
+    "highlight": "BA",
     "descriptionLines": [
-      "Hair that moves with humidity, not against it.",
-      "FNQ-tested products, editorial techniques."
+      "Slow-simmered tonkotsu, blistered chashu, and springy noodles —",
+      "steps from the Esplanade in the Cairns CBD."
     ],
-    "primaryCta": { "label": "Request Appointment", "href": "mailto:book@studio9-demo.example" },
-    "secondaryCta": { "label": "Services", "href": "#menu" },
+    "primaryCta": {
+      "label": "Call the shop",
+      "href": "tel:+61740312522"
+    },
+    "secondaryCta": { "label": "Ramen menu", "href": "#menu" },
     "backgroundImage": "/hero.jpg",
     "meta": [
-      { "text": "Tue–Sat 9am – 7pm" },
-      { "text": "Level 1, 42 Lake St" },
-      { "text": "New client consult" }
+      { "text": "Lunch & dinner · Closed Wednesdays" },
+      { "text": "Shop 7/8, 14 Spence St, Cairns City" },
+      { "text": "Tonkotsu · Miso · Shoyu" }
     ]
   },
   "features": [
     {
-      "title": "Cut & Style",
-      "desc": "Texture-first shapes for tropical climates — low maintenance, high polish."
+      "title": "Tonkotsu broth",
+      "desc": "Pork bones simmered for hours until the soup turns creamy — the base of our Hakata-style bowls."
     },
     {
-      "title": "Colour",
-      "desc": "Balayage, foilyage, and glossing with bond builders in every service."
+      "title": "Chashu & toppings",
+      "desc": "Blistered pork belly, seasoned egg, bean sprouts, and negi — balanced for the tropics."
     },
     {
-      "title": "Treatments",
-      "desc": "K18, Olaplex, and scalp detox rituals tailored to your routine."
+      "title": "Cairns CBD",
+      "desc": "Tucked in Boland's Centre on Spence St — easy stop before or after the Lagoon and Esplanade."
     }
   ],
   "gallery": {
-    "eyebrow": "Portfolio",
-    "title": "Recent Work",
+    "eyebrow": "From the kitchen",
+    "title": "Ramen, chashu & gyoza",
     "images": [
-      { "src": "/food-yakitori.jpg", "alt": "Colour work" },
-      { "src": "/food-niku.jpg", "alt": "Cut & finish" },
-      { "src": "/food-edamame.jpg", "alt": "Salon floor" }
+      {
+        "src": "/food-ramen.jpg",
+        "alt": "Tonkotsu ramen bowl with egg and chashu"
+      },
+      {
+        "src": "/food-chasyu.jpg",
+        "alt": "Blistered pork chashu"
+      },
+      {
+        "src": "/food-gyoza.jpg",
+        "alt": "Pan-fried gyoza"
+      }
     ]
   },
   "menu": {
-    "sectionEyebrow": "Services",
-    "sectionTitle": "Menu & Pricing",
-    "footerNote": "Patch test required 48h before first-time colour.",
+    "sectionEyebrow": "Menu",
+    "sectionTitle": "Ramen & sides",
+    "footerNote": "Hours and menu may change — check the venue’s Facebook or call before you visit. Tell staff about allergens.",
     "items": [
-      { "name": "Cut & Blowdry", "desc": "Includes style finish", "price": "from $95" },
-      { "name": "Express Gloss", "desc": "Shine refresh, 6-week fade", "price": "$85" },
-      { "name": "Half Head Foils", "desc": "T-section or face frame", "price": "from $180" },
-      { "name": "Full Balayage", "desc": "Toners included", "price": "from $280" },
-      { "name": "Treatment Add-on", "desc": "K18 or moisture mask", "price": "$45" },
-      { "name": "Blowdry", "desc": "Hot tool finish", "price": "$65" }
+      {
+        "name": "Tonkotsu Ramen",
+        "desc": "Classic pork broth, chashu, egg, bean sprouts, sesame",
+        "price": "$18"
+      },
+      {
+        "name": "Black Garlic Tonkotsu",
+        "desc": "Rich broth with garlic oil — extra depth",
+        "price": "$19"
+      },
+      {
+        "name": "Spicy Miso Ramen",
+        "desc": "Miso blend with chilli heat; chashu & veg",
+        "price": "$18"
+      },
+      {
+        "name": "Shoyu Ramen",
+        "desc": "Clear chicken & soy soup, lighter but still full",
+        "price": "$17"
+      },
+      {
+        "name": "Gyoza (6pcs)",
+        "desc": "Pan-fried pork dumplings",
+        "price": "$9"
+      },
+      {
+        "name": "Kaedama",
+        "desc": "Extra serve of noodles",
+        "price": "$3"
+      }
     ]
   },
   "contact": {
-    "sectionEyebrow": "Location",
-    "sectionTitle": "Studio 9",
+    "sectionEyebrow": "Visit",
+    "sectionTitle": "GANBARANBA",
     "address": {
       "label": "Address",
-      "lines": ["Level 1, 42 Lake St", "Cairns City QLD 4870, Australia"]
+      "lines": [
+        "Shop 7/8, Boland's Centre",
+        "14 Spence St, Cairns City QLD 4870, Australia"
+      ],
+      "mapHref": "https://www.google.com/maps/search/?api=1&query=Ganbaranba+14+Spence+St+Cairns+QLD",
+      "mapLinkLabel": "Open in maps"
     },
     "hours": {
       "label": "Hours",
-      "lines": ["Tue – Sat", "9:00am – 7:00pm"]
+      "lines": [
+        "Lunch & dinner Mon, Tue, Thu, Fri, Sat, Sun (closed Wednesdays)",
+        "Typical: lunch 11:30am–2:00pm · dinner 5:00pm–8:00pm — confirm on Facebook"
+      ]
     },
-    "phone": "0400 000 222",
-    "email": "book@studio9-demo.example",
+    "phone": "07 4031 2522",
+    "email": "hello@ganbaranba-demo.example",
     "social": {
-      "instagram": "https://instagram.com",
-      "facebook": "https://facebook.com"
+      "facebook": "https://www.facebook.com/p/Ganbaranba-100063562571575/",
+      "maps": "https://www.google.com/maps/search/?api=1&query=Ganbaranba+14+Spence+St+Cairns+QLD"
     }
   },
   "reservation": {
-    "title": "Book your consult",
-    "subtitle": "We reply within one business day with timing options."
+    "title": "Walk-ins & groups",
+    "subtitle": "Drop in for a bowl; call ahead if you’re a large group or visiting on a busy night."
   },
   "footer": {
-    "brandLine": "Studio 9",
-    "subLine": "Hair & Colour · Cairns City",
+    "brandLine": "GANBARANBA",
+    "subLine": "Tonkotsu ramen · Cairns — sales demo sample; verify hours and phone on the official Facebook page before publishing",
     "year": 2026
   }
 }

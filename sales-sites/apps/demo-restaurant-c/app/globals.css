@@ -13,8 +13,14 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-site-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
+}
+
+@layer base {
+  html {
+    --font-geist-sans: var(--font-site-sans);
+  }
 }
 
 @media (prefers-color-scheme: dark) {

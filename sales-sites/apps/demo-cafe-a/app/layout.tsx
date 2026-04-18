@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
 import type { SiteConfig } from "@sales-sites/lib";
 import { buildMetadata } from "@sales-sites/lib";
+import { getSiteFont } from "@sales-sites/ui";
 import "./globals.css";
 import site from "../data/site.json";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -16,6 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 const siteConfig = site as SiteConfig;
+const siteFont = getSiteFont(siteConfig.theme.fontPreset);
 const palette = siteConfig.theme.palette;
 
 export const metadata: Metadata = buildMetadata(siteConfig);
@@ -28,7 +25,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${siteFont.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body

@@ -34,7 +34,9 @@ export function ReservationSocialLinks({
   const fb = social.facebook?.trim();
 
   const linkClass = palette
-    ? "text-sm text-[var(--p-sub)] transition-colors hover:text-[var(--p-accent)]"
+    ? palette.highlight?.trim()
+      ? "text-sm text-[var(--p-sub)] transition-colors hover:text-[var(--p-highlight)]"
+      : "text-sm text-[var(--p-sub)] transition-colors hover:text-[var(--p-accent)]"
     : `text-sm text-zinc-400 transition-colors ${ACCENT_LINK[accent].hover}`;
 
   const items: { key: string; href: string; label: string }[] = [];

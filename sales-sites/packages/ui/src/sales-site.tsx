@@ -51,13 +51,16 @@ const ACCENT: Record<
 };
 
 function paletteCssVars(p: NonNullable<SiteConfig["theme"]["palette"]>): CSSProperties {
-  return {
+  const o: Record<string, string> = {
     "--p-bg": p.background,
     "--p-text": p.mainText,
     "--p-sub": p.subText,
     "--p-accent": p.accent,
     "--p-secondary": p.secondary,
-  } as CSSProperties;
+  };
+  const hi = p.highlight?.trim();
+  if (hi) o["--p-highlight"] = hi;
+  return o as CSSProperties;
 }
 
 /** accent の上に載せる文字色（ライトは白、ダークは zinc-950） */
@@ -73,11 +76,40 @@ export function SalesSite({ site }: { site: SiteConfig }) {
   const addressMapHref = resolveAddressMapHref(site.contact.address);
   const addressMapLabel = site.contact.address.mapLinkLabel?.trim() || "Open in maps";
 
+  const hasHighlight = !!p?.highlight?.trim();
+
+  /** 小見出し（eyebrow）: 灯り色があれば暖色、なければアクセント赤 */
+  const eyebrowTone = p
+    ? hasHighlight
+      ? "text-[var(--p-highlight)]"
+      : "text-[var(--p-accent)]"
+    : "";
+
   const heroRadial = p
-    ? { backgroundImage: `radial-gradient(ellipse at 50% 50%, color-mix(in srgb, var(--p-accent) 18%, transparent) 0%, transparent 70%)` }
+    ? hasHighlight
+      ? {
+          backgroundImage: `radial-gradient(ellipse at 45% 35%, color-mix(in srgb, var(--p-highlight) 35%, transparent) 0%, transparent 55%), radial-gradient(ellipse at 60% 60%, color-mix(in srgb, var(--p-accent) 14%, transparent) 0%, transparent 65%)`,
+        }
+      : {
+          backgroundImage: `radial-gradient(ellipse at 50% 50%, color-mix(in srgb, var(--p-accent) 18%, transparent) 0%, transparent 70%)`,
+        }
     : {
         backgroundImage: `radial-gradient(ellipse at 50% 50%, ${a.radial} 0%, transparent 70%)`,
       };
+
+  /** 特徴カード上のバー: 木色を優先 */
+  const featureBarClass = p
+    ? hasHighlight
+      ? "mb-4 h-1 w-10 rounded-full bg-[var(--p-secondary)]"
+      : "mb-4 h-1 w-10 rounded-full bg-[var(--p-accent)]"
+    : "";
+
+  /** 連絡先行頭のドット: 灯りパレット時は木色 */
+  const contactDotClass = p
+    ? hasHighlight
+      ? "mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--p-secondary)]"
+      : "mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--p-accent)]"
+    : "";
 
   return (
     <div
@@ -100,7 +132,7 @@ export function SalesSite({ site }: { site: SiteConfig }) {
             <p
               className={
                 p
-                  ? "text-xs uppercase tracking-widest text-[var(--p-accent)]"
+                  ? `text-xs uppercase tracking-widest ${eyebrowTone}`
                   : `text-xs uppercase tracking-widest ${a.text}`
               }
             >
@@ -129,14 +161,21 @@ export function SalesSite({ site }: { site: SiteConfig }) {
           style={{ backgroundImage: `url('${site.hero.backgroundImage}')` }}
         />
         <div
-          className={p ? "absolute inset-0 bg-white/70" : "absolute inset-0 bg-zinc-950/70"}
+          className={
+            p
+              ? "absolute inset-0 bg-[color-mix(in_srgb,var(--p-bg)_78%,transparent)]"
+              : "absolute inset-0 bg-zinc-950/70"
+          }
         />
-        <div className="absolute inset-0 opacity-15" style={heroRadial} />
+        <div
+          className={hasHighlight && p ? "absolute inset-0 opacity-[0.22]" : "absolute inset-0 opacity-15"}
+          style={heroRadial}
+        />
         <div className="relative z-10 mx-auto max-w-3xl">
           <p
             className={
               p
-                ? "mb-4 text-sm uppercase tracking-widest text-[var(--p-accent)]"
+                ? `mb-4 text-sm uppercase tracking-widest ${eyebrowTone}`
                 : `mb-4 text-sm uppercase tracking-widest ${a.text}`
             }
           >
@@ -218,11 +257,7 @@ export function SalesSite({ site }: { site: SiteConfig }) {
               }
             >
               <div
-                className={
-                  p
-                    ? "mb-4 h-1 w-10 rounded-full bg-[var(--p-accent)]"
-                    : `mb-4 h-1 w-10 rounded-full ${a.bg}`
-                }
+                className={p ? featureBarClass : `mb-4 h-1 w-10 rounded-full ${a.bg}`}
                 aria-hidden
               />
               <h3
@@ -252,7 +287,7 @@ export function SalesSite({ site }: { site: SiteConfig }) {
             <p
               className={
                 p
-                  ? "mb-2 text-sm uppercase tracking-widest text-[var(--p-accent)]"
+                  ? `mb-2 text-sm uppercase tracking-widest ${eyebrowTone}`
                   : `mb-2 text-sm uppercase tracking-widest ${a.text}`
               }
             >
@@ -277,14 +312,18 @@ export function SalesSite({ site }: { site: SiteConfig }) {
 
       <section
         id="menu"
-        className={p ? "bg-[var(--p-secondary)] px-6 py-20" : "bg-zinc-900 px-6 py-20"}
+        className={
+          p
+            ? "bg-[color-mix(in_srgb,var(--p-secondary)_38%,var(--p-bg))] px-6 py-20"
+            : "bg-zinc-900 px-6 py-20"
+        }
       >
         <div className="mx-auto max-w-6xl">
           <div className="mb-14 text-center">
             <p
               className={
                 p
-                  ? "mb-2 text-sm uppercase tracking-widest text-[var(--p-accent)]"
+                  ? `mb-2 text-sm uppercase tracking-widest ${eyebrowTone}`
                   : `mb-2 text-sm uppercase tracking-widest ${a.text}`
               }
             >
@@ -350,7 +389,7 @@ export function SalesSite({ site }: { site: SiteConfig }) {
             <p
               className={
                 p
-                  ? "mb-2 text-sm uppercase tracking-widest text-[var(--p-accent)]"
+                  ? `mb-2 text-sm uppercase tracking-widest ${eyebrowTone}`
                   : `mb-2 text-sm uppercase tracking-widest ${a.text}`
               }
             >
@@ -362,11 +401,7 @@ export function SalesSite({ site }: { site: SiteConfig }) {
             <div className={p ? "space-y-5 text-[var(--p-sub)]" : "space-y-5 text-zinc-300"}>
               <div className="flex gap-4">
                 <span
-                  className={
-                    p
-                      ? "mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--p-accent)]"
-                      : `mt-1.5 h-2 w-2 shrink-0 rounded-full ${a.bg}`
-                  }
+                  className={p ? contactDotClass : `mt-1.5 h-2 w-2 shrink-0 rounded-full ${a.bg}`}
                   aria-hidden
                 />
                 <div>
@@ -392,11 +427,7 @@ export function SalesSite({ site }: { site: SiteConfig }) {
               </div>
               <div className="flex gap-4">
                 <span
-                  className={
-                    p
-                      ? "mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--p-accent)]"
-                      : `mt-1.5 h-2 w-2 shrink-0 rounded-full ${a.bg}`
-                  }
+                  className={p ? contactDotClass : `mt-1.5 h-2 w-2 shrink-0 rounded-full ${a.bg}`}
                   aria-hidden
                 />
                 <div>
@@ -410,11 +441,7 @@ export function SalesSite({ site }: { site: SiteConfig }) {
               </div>
               <div className="flex gap-4">
                 <span
-                  className={
-                    p
-                      ? "mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--p-accent)]"
-                      : `mt-1.5 h-2 w-2 shrink-0 rounded-full ${a.bg}`
-                  }
+                  className={p ? contactDotClass : `mt-1.5 h-2 w-2 shrink-0 rounded-full ${a.bg}`}
                   aria-hidden
                 />
                 <div>
@@ -426,11 +453,7 @@ export function SalesSite({ site }: { site: SiteConfig }) {
               </div>
               <div className="flex gap-4">
                 <span
-                  className={
-                    p
-                      ? "mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--p-accent)]"
-                      : `mt-1.5 h-2 w-2 shrink-0 rounded-full ${a.bg}`
-                  }
+                  className={p ? contactDotClass : `mt-1.5 h-2 w-2 shrink-0 rounded-full ${a.bg}`}
                   aria-hidden
                 />
                 <div>

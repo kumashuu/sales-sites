@@ -9,7 +9,10 @@
     "title": "KUSHI | Yakitori Bar & Japanese Restaurant",
     "description": "Authentic Japanese charcoal grilling with ocean views over Palm Cove, Cairns."
   },
-  "theme": { "accent": "amber" },
+  "theme": {
+    "accent": "amber",
+    "fontPreset": "vabiDasabi"
+  },
   "nav": {
     "ctaLabel": "Reserve a Table",
     "ctaHref": "mailto:booking@kushiqld.com"

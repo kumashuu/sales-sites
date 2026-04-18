@@ -11,6 +11,7 @@
   },
   "theme": {
     "accent": "emerald",
+    "fontPreset": "vabiDasabi",
     "palette": {
       "background": "#FFFFFF",
       "mainText": "#181818",
