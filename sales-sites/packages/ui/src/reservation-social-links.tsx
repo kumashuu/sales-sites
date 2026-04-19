@@ -10,6 +10,7 @@ const ACCENT_LINK: Record<
   amber: { hover: "hover:text-amber-400" },
   emerald: { hover: "hover:text-emerald-400" },
   rose: { hover: "hover:text-rose-400" },
+  yellow: { hover: "hover:text-[#FDFD47]" },
 };
 
 export type ReservationSocialLinksProps = {

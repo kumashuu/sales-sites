@@ -1,4 +1,4 @@
-export type AccentKey = "amber" | "emerald" | "rose";
+export type AccentKey = "amber" | "emerald" | "rose" | "yellow";
 
 export type SiteTemplate = "restaurant" | "cafe" | "salon";
 
@@ -35,6 +35,10 @@ export interface SiteConfig {
       secondary: string;
       /** 暖色の灯り・アクセント（省略時は eyebrow 等は accent を使用） */
       highlight?: string;
+      /** アクセント色の上の文字（明るい黄などでは #0A0A0A 推奨）。省略時は白 */
+      accentForeground?: string;
+      /** true のとき特徴カードの見出しを mainText に（明るい黄アクセントで読みやすくする） */
+      featureTitlesUseMainText?: boolean;
     };
   };
   nav: {

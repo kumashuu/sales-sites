@@ -48,6 +48,17 @@ const ACCENT: Record<
     textHover: "hover:text-rose-400",
     radial: "rgba(251, 113, 133, 0.15)",
   },
+  /** ロゴ黄 #FDFD47（ダークUI・ボタン文字は zinc-950） */
+  yellow: {
+    text: "text-[#FDFD47]",
+    bg: "bg-[#FDFD47]",
+    bgHover: "hover:brightness-95",
+    borderNav: "hover:border-[#FDFD47]",
+    borderCard: "hover:border-[#FDFD47]/50",
+    borderMenu: "hover:border-[#FDFD47]/40",
+    textHover: "hover:text-[#FDFD47]",
+    radial: "rgba(253, 253, 71, 0.14)",
+  },
 };
 
 function paletteCssVars(p: NonNullable<SiteConfig["theme"]["palette"]>): CSSProperties {
@@ -60,12 +71,16 @@ function paletteCssVars(p: NonNullable<SiteConfig["theme"]["palette"]>): CSSProp
   };
   const hi = p.highlight?.trim();
   if (hi) o["--p-highlight"] = hi;
+  const on = p.accentForeground?.trim();
+  if (on) o["--p-on-accent"] = on;
   return o as CSSProperties;
 }
 
-/** accent の上に載せる文字色（ライトは白、ダークは zinc-950） */
+/** accent の上に載せる文字色（明るい黄は accentForeground、それ以外は白） */
 function onAccentText(palette: SiteConfig["theme"]["palette"] | undefined): string {
-  return palette ? "text-white" : "text-zinc-950";
+  if (!palette) return "text-zinc-950";
+  if (palette.accentForeground?.trim()) return "text-[var(--p-on-accent)]";
+  return "text-white";
 }
 
 export function SalesSite({ site }: { site: SiteConfig }) {
@@ -263,7 +278,9 @@ export function SalesSite({ site }: { site: SiteConfig }) {
               <h3
                 className={
                   p
-                    ? "mb-3 text-xl font-bold text-[var(--p-accent)]"
+                    ? p.featureTitlesUseMainText
+                      ? "mb-3 text-xl font-bold text-[var(--p-text)]"
+                      : "mb-3 text-xl font-bold text-[var(--p-accent)]"
                     : `mb-3 text-xl font-bold ${a.text}`
                 }
               >
