@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
 import { Geist_Mono } from "next/font/google";
-import type { SiteConfig } from "@sales-sites/lib";
 import { buildMetadata } from "@sales-sites/lib";
 import { getSiteFont } from "@sales-sites/ui";
 import "./globals.css";
-import site from "../data/site.json";
+import { getSite } from "../lib/site";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
-const siteConfig = site as SiteConfig;
+const siteConfig = getSite();
 const siteFont = getSiteFont(siteConfig.theme.fontPreset);
 const palette = siteConfig.theme.palette;
 

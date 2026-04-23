@@ -1,0 +1,160 @@
+{
+  "siteKey": "triangle-coffee-freshwater-demo",
+  "template": "cafe",
+  "brand": {
+    "name": "TRIANGLE COFFEE",
+    "locationLine": "Freshwater · Cairns, QLD"
+  },
+  "seo": {
+    "title": "TRIANGLE COFFEE | Specialty Coffee & Onigiri · Freshwater, Cairns",
+    "description": "A Japanese-run coffee stand inside Coco Shop on Kamerunga Rd, Freshwater — specialty coffee in signature teal cups, hand-whisked matcha and freshly made onigiri."
+  },
+  "theme": {
+    "accent": "amber",
+    "fontPreset": "notoSansJp",
+    "palette": {
+      "background": "#FFFFFF",
+      "mainText": "#1A1A1A",
+      "subText": "#6B6B6B",
+      "accent": "#2F6E5E",
+      "secondary": "#EFE7DC"
+    }
+  },
+  "nav": {
+    "ctaLabel": "View on Instagram",
+    "ctaHref": "https://www.instagram.com/cafe.trianglecoffee/"
+  },
+  "hero": {
+    "eyebrow": "Inside Coco Shop · Kamerunga Rd",
+    "title": "TRIANGLE",
+    "highlight": "COFFEE",
+    "descriptionLines": [
+      "A small Japanese-run stand in Freshwater, Cairns —",
+      "specialty coffee, whisked matcha and freshly made onigiri."
+    ],
+    "primaryCta": {
+      "label": "Directions",
+      "href": "https://www.google.com/maps/search/?api=1&query=Triangle%20Coffee%20Freshwater%20Cairns"
+    },
+    "secondaryCta": { "label": "Menu preview", "href": "#menu" },
+    "backgroundImage": "/triangle-coffee/hero.jpg",
+    "meta": [
+      { "text": "Weekdays 6:00am – 2:00pm" },
+      { "text": "Weekends 6:30am – 1:00pm" },
+      { "text": "Shop 6/7, 227–229 Kamerunga Rd, Freshwater" }
+    ]
+  },
+  "features": [
+    {
+      "title": "Specialty coffee",
+      "desc": "Dialled-in espresso and hand pour-overs from a Japanese barista — flat whites and lattes served in our signature teal cups."
+    },
+    {
+      "title": "Hand-whisked matcha",
+      "desc": "Ceremonial-grade matcha, whisked to order — layered hot or iced over cold milk. Rotating seasonal flavours when the fruit is right."
+    },
+    {
+      "title": "Freshly made onigiri",
+      "desc": "Rice balls made in-house — a plain nori classic and a daily mixed filling. The easiest Japanese breakfast in Cairns."
+    }
+  ],
+  "gallery": {
+    "eyebrow": "Drinks & plates",
+    "title": "Cups, matcha & onigiri",
+    "images": [
+      {
+        "src": "/triangle-coffee/drink-coffee.jpg",
+        "alt": "Latte art in our signature teal cups — flat white & latte"
+      },
+      {
+        "src": "/triangle-coffee/drink-macha.jpg",
+        "alt": "Hand-whisked iced matcha latte, layered over cold milk"
+      },
+      {
+        "src": "/triangle-coffee/food-onigiri.jpg",
+        "alt": "House-made onigiri — mixed filling & nori-wrapped classic"
+      }
+    ]
+  },
+  "menu": {
+    "sectionEyebrow": "Menu ideas",
+    "sectionTitle": "Daily picks",
+    "footerNote": "Items & prices change with the seasons — check Instagram @cafe.trianglecoffee for today’s specials.",
+    "items": [
+      {
+        "name": "Flat white",
+        "desc": "House espresso & silky steamed milk in our teal cup",
+        "price": "from $5"
+      },
+      {
+        "name": "Latte",
+        "desc": "Double shot, poured milk, proper latte art",
+        "price": "from $5"
+      },
+      {
+        "name": "Long black",
+        "desc": "Double shot with hot water — clean and strong",
+        "price": "from $5"
+      },
+      {
+        "name": "Pour-over (filter)",
+        "desc": "Hand-brewed single origin — ask what’s on today",
+        "price": "from $7"
+      },
+      {
+        "name": "Iced matcha latte",
+        "desc": "Whisked ceremonial-grade matcha layered over cold milk",
+        "price": "from $7"
+      },
+      {
+        "name": "Seasonal matcha special",
+        "desc": "Rotating house flavour — strawberry, Easter, etc.",
+        "price": "from $8"
+      },
+      {
+        "name": "Onigiri (nori classic)",
+        "desc": "Warm rice ball wrapped in crisp nori — simple & satisfying",
+        "price": "from $5"
+      },
+      {
+        "name": "Onigiri (daily filling)",
+        "desc": "Today’s mixed-rice onigiri — sesame, veg or salmon depending on the day",
+        "price": "from $6"
+      }
+    ]
+  },
+  "contact": {
+    "sectionEyebrow": "Find us",
+    "sectionTitle": "TRIANGLE COFFEE",
+    "address": {
+      "label": "Address",
+      "lines": [
+        "Inside Coco Shop",
+        "Shop 6/7, 227–229 Kamerunga Rd",
+        "Freshwater QLD 4870, Australia"
+      ]
+    },
+    "hours": {
+      "label": "Hours",
+      "lines": [
+        "Mon – Fri: 6:00am – 2:00pm",
+        "Sat – Sun: 6:30am – 1:00pm"
+      ]
+    },
+    "phone": "",
+    "email": "",
+    "social": {
+      "instagram": "https://www.instagram.com/cafe.trianglecoffee/",
+      "maps": "https://www.google.com/maps/search/?api=1&query=Triangle%20Coffee%20Coco%20Shop%20Freshwater%20Cairns"
+    }
+  },
+  "reservation": {
+    "title": "Say hi on Instagram",
+    "subtitle": "No bookings needed — pop in at Coco Shop. For classes and enquiries, DM @cafe.trianglecoffee."
+  },
+  "footer": {
+    "brandLine": "TRIANGLE COFFEE",
+    "subLine": "Sales sample (not the live venue site) · Replace phone/email and photos with the venue’s real assets before publishing",
+    "year": 2026
+  }
+}

@@ -1,0 +1,7 @@
+
+> @sales-sites/demo-cafe-a@0.1.0 build /Users/kuma/Dev/company/sales-sites/apps/demo-cafe-a
+> next build \# -
+
+/Users/kuma/Dev/company/sales-sites/apps/demo-cafe-a:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @sales-sites/demo-cafe-a@0.1.0 build: `next build \# -`
+Exit status 1
