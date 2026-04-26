@@ -1,6 +1,6 @@
 export type AccentKey = "amber" | "emerald" | "rose" | "yellow";
 
-export type SiteTemplate = "restaurant" | "cafe" | "salon";
+export type SiteTemplate = "restaurant" | "cafe" | "salon" | "beauty";
 
 /**
  * サイト全体の欧文・和文のベースフォント。
@@ -58,6 +58,25 @@ export interface SiteConfig {
   };
   /** 絵文字は使わない。見出し上の装飾はテーマ色のバーで表示 */
   features: { title: string; desc: string }[];
+  /**
+   * 美容室向けなど: 施術の Before / After ギャラリー。
+   * 未指定のサイトではレンダリングしない（既存テンプレとの互換）。
+   */
+  beforeAfter?: {
+    sectionEyebrow: string;
+    sectionTitle: string;
+    subtitle?: string;
+    /** 画像下のラベル（省略時は Before / After） */
+    labels?: { before: string; after: string };
+    footerNote?: string;
+    items: {
+      /** カード見出し（例: 縮毛矯正） */
+      title?: string;
+      caption?: string;
+      before: { src: string; alt: string };
+      after: { src: string; alt: string };
+    }[];
+  };
   gallery: {
     title: string;
     eyebrow: string;
@@ -79,11 +98,19 @@ export interface SiteConfig {
       mapHref?: string;
       /** 地図リンクの表示文言（省略時は "Open in maps"） */
       mapLinkLabel?: string;
+      /** false のとき住所ブロック下の地図リンク（外部URL）を出さない。販促テンプレ用 */
+      showMapLink?: boolean;
     };
     hours: { label: string; lines: string[] };
     phone: string;
-    email: string;
-    /** 予約カード下部の固定3種（未設定のリンクは表示しない）。maps 省略時は address から地図URLを生成 */
+    /** false のとき予約カード内の「Call」ボタン（tel:）を出さない。番号は左カラムにテキストのまま表示可 */
+    showCallButton?: boolean;
+    /** 未設定・空のときは連絡欄のメール行と予約カードのメールボタンを出さない */
+    email?: string;
+    /**
+     * 予約カード下部: Instagram / Facebook / Location（未設定のキーは非表示）。
+     * `maps` を **空文字** にすると Location を出さず、住所からの自動地図URLも使わない。
+     */
     social: {
       instagram?: string;
       facebook?: string;

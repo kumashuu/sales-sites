@@ -1,0 +1,126 @@
+{
+  "siteKey": "sushi-bowls-placeholder",
+  "template": "restaurant",
+  "brand": {
+    "name": "UMI",
+    "locationLine": "Japanese · Sushi, bowls & tempura"
+  },
+  "seo": {
+    "title": "UMI Sushi | Maki, sashimi, tempura & bowls",
+    "description": "Replace with your real shop name, suburb, and opening hours. Template layout: rolls, sashimi, tempura, and donburi-style rice bowls for lunch or take-away."
+  },
+  "theme": {
+    "accent": "rose",
+    "fontPreset": "notoSansJp",
+    "palette": {
+      "background": "#FFFDF9",
+      "mainText": "#1A1A1A",
+      "subText": "#5C5C5C",
+      "accent": "#A61E2A",
+      "secondary": "#E8E4DE",
+      "highlight": "#B8860B"
+    }
+  },
+  "nav": {
+    "ctaLabel": "Menu",
+    "ctaHref": "#menu"
+  },
+  "hero": {
+    "eyebrow": "Replace with your area · Main street (example)",
+    "title": "UMI",
+    "highlight": "SUSHI",
+    "descriptionLines": [
+      "Maki, sashimi, and crisp tempura —",
+      "plus rice bowls for when you need something warm and quick."
+    ],
+    "primaryCta": {
+      "label": "View menu",
+      "href": "#menu"
+    },
+    "secondaryCta": { "label": "Sample menu", "href": "#menu" },
+    "backgroundImage": "/tokiwa/hero.jpg",
+    "meta": [
+      { "text": "Set your hours in site.json" },
+      { "text": "Lunch + dinner (example)" },
+      { "text": "Add your address below" }
+    ]
+  },
+  "features": [
+    {
+      "title": "Maki & rolls",
+      "desc": "Hand-rolled maki and cut rolls. Swap the copy and photos to match your actual range."
+    },
+    {
+      "title": "Sashimi & nigiri",
+      "desc": "Fish-led plates and share trays. Menu and availability change with the week — set honest wording for your local supply."
+    },
+    {
+      "title": "Tempura",
+      "desc": "Crisp prawn and vegetable tempura, ideal next to a small rice bowl or as a side."
+    }
+  ],
+  "gallery": {
+    "eyebrow": "Menu-style photos",
+    "title": "Rolls, sashimi, tempura",
+    "images": [
+      {
+        "src": "/tokiwa/food-roll.jpg",
+        "alt": "Assorted maki and sushi rolls on a board"
+      },
+      {
+        "src": "/tokiwa/food-sashimi.jpg",
+        "alt": "Sashimi and nigiri selection on a serving tray"
+      },
+      {
+        "src": "/tokiwa/food-tempra.png",
+        "alt": "Tempura — prawn and vegetable, golden and crisp"
+      }
+    ]
+  },
+  "menu": {
+    "sectionEyebrow": "Menu ideas",
+    "sectionTitle": "Sushi, bowls & sides",
+    "footerNote": "Replace names, prices, and items with your real menu. The numbers below are placeholders for layout only.",
+    "items": [
+      { "name": "Sashimi & nigiri set", "desc": "Chef’s pick — list your sizes (small / large) here", "price": "—" },
+      { "name": "Maki & roll pack", "desc": "Assorted maki; describe what’s in the photo", "price": "—" },
+      { "name": "Tempura set", "desc": "Prawn and veg, miso and rice as you offer", "price": "—" },
+      { "name": "Rice bowl (katsu, teriyaki, etc.)", "desc": "Your donburi line — replace with your bestsellers", "price": "—" },
+      { "name": "Miso soup", "desc": "Side", "price": "—" },
+      { "name": "Edamame", "desc": "Side", "price": "—" }
+    ]
+  },
+  "contact": {
+    "sectionEyebrow": "Contact",
+    "sectionTitle": "Add your business name",
+    "address": {
+      "label": "Address (placeholder)",
+      "lines": [
+        "Shop or suite number, street",
+        "Suburb, State & postcode, Country"
+      ],
+      "showMapLink": false
+    },
+    "hours": {
+      "label": "Hours (replace with yours)",
+      "lines": [
+        "Monday – Friday: example 11:00am – 8:00pm",
+        "Saturday – Sunday: example 11:00am – 3:00pm"
+      ]
+    },
+    "phone": "00 0000 0000",
+    "showCallButton": false,
+    "social": {
+      "maps": ""
+    }
+  },
+  "reservation": {
+    "title": "Bookings & take-away",
+    "subtitle": "Add your phone, email, and social links in site.json when you are ready. Map links, tel:, mailto:, and social buttons stay off in this template until you enable them."
+  },
+  "footer": {
+    "brandLine": "UMI Sushi (placeholder)",
+    "subLine": "Content and contacts are generic — swap brand, address, and links before any live use. Food photos: reference assets in /public/tokiwa/.",
+    "year": 2026
+  }
+}

@@ -1,65 +1,9 @@
 import type { CSSProperties } from "react";
 import type { SiteConfig } from "@sales-sites/lib";
 import { resolveAddressMapHref, telHref } from "@sales-sites/lib";
+import { ACCENT } from "./accent-tokens";
 import { ReservationSocialLinks } from "./reservation-social-links";
-
-type Accent = SiteConfig["theme"]["accent"];
-
-const ACCENT: Record<
-  Accent,
-  {
-    text: string;
-    bg: string;
-    bgHover: string;
-    borderNav: string;
-    borderCard: string;
-    borderMenu: string;
-    textHover: string;
-    radial: string;
-  }
-> = {
-  amber: {
-    text: "text-amber-400",
-    bg: "bg-amber-500",
-    bgHover: "hover:bg-amber-400",
-    borderNav: "hover:border-amber-400",
-    borderCard: "hover:border-amber-500/50",
-    borderMenu: "hover:border-amber-500/40",
-    textHover: "hover:text-amber-400",
-    radial: "rgba(245, 158, 11, 0.15)",
-  },
-  emerald: {
-    text: "text-emerald-400",
-    bg: "bg-emerald-500",
-    bgHover: "hover:bg-emerald-400",
-    borderNav: "hover:border-emerald-400",
-    borderCard: "hover:border-emerald-500/50",
-    borderMenu: "hover:border-emerald-500/40",
-    textHover: "hover:text-emerald-400",
-    radial: "rgba(52, 211, 153, 0.15)",
-  },
-  rose: {
-    text: "text-rose-400",
-    bg: "bg-rose-500",
-    bgHover: "hover:bg-rose-400",
-    borderNav: "hover:border-rose-400",
-    borderCard: "hover:border-rose-500/50",
-    borderMenu: "hover:border-rose-500/40",
-    textHover: "hover:text-rose-400",
-    radial: "rgba(251, 113, 133, 0.15)",
-  },
-  /** ロゴ黄 #FDFD47（ダークUI・ボタン文字は zinc-950） */
-  yellow: {
-    text: "text-[#FDFD47]",
-    bg: "bg-[#FDFD47]",
-    bgHover: "hover:brightness-95",
-    borderNav: "hover:border-[#FDFD47]",
-    borderCard: "hover:border-[#FDFD47]/50",
-    borderMenu: "hover:border-[#FDFD47]/40",
-    textHover: "hover:text-[#FDFD47]",
-    radial: "rgba(253, 253, 71, 0.14)",
-  },
-};
+import { TreatmentBeforeAfter } from "./treatment-before-after";
 
 function paletteCssVars(p: NonNullable<SiteConfig["theme"]["palette"]>): CSSProperties {
   const o: Record<string, string> = {
@@ -90,6 +34,10 @@ export function SalesSite({ site }: { site: SiteConfig }) {
   const onAccent = onAccentText(p);
   const addressMapHref = resolveAddressMapHref(site.contact.address);
   const addressMapLabel = site.contact.address.mapLinkLabel?.trim() || "Open in maps";
+  const showAddressMapLink = site.contact.address.showMapLink !== false;
+  const showReservationCall = site.contact.showCallButton !== false;
+  const menuSectionId = site.template === "beauty" ? "services" : "menu";
+  const hasEmail = Boolean(site.contact.email?.trim());
 
   const hasHighlight = !!p?.highlight?.trim();
 
@@ -298,6 +246,14 @@ export function SalesSite({ site }: { site: SiteConfig }) {
         </div>
       </section>
 
+      {site.beforeAfter ? (
+        <TreatmentBeforeAfter
+          section={site.beforeAfter}
+          palette={p}
+          accent={site.theme.accent}
+        />
+      ) : null}
+
       <section className="px-6 py-20">
         <div className="mx-auto max-w-6xl">
           <div className="mb-10 text-center">
@@ -328,7 +284,7 @@ export function SalesSite({ site }: { site: SiteConfig }) {
       </section>
 
       <section
-        id="menu"
+        id={menuSectionId}
         className={
           p
             ? "bg-[color-mix(in_srgb,var(--p-secondary)_38%,var(--p-bg))] px-6 py-20"
@@ -428,18 +384,20 @@ export function SalesSite({ site }: { site: SiteConfig }) {
                   {site.contact.address.lines.map((line) => (
                     <p key={line}>{line}</p>
                   ))}
-                  <a
-                    href={addressMapHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={
-                      p
-                        ? "mt-3 inline-flex items-center gap-1.5 rounded-full border border-[color:var(--p-accent)] px-3 py-1.5 text-sm font-medium text-[var(--p-accent)] transition-colors hover:bg-[var(--p-secondary)]"
-                        : `mt-3 inline-flex items-center gap-1.5 rounded-full border border-zinc-500 px-3 py-1.5 text-sm font-medium transition-colors ${a.borderNav} ${a.textHover}`
-                    }
-                  >
-                    {addressMapLabel}
-                  </a>
+                  {showAddressMapLink ? (
+                    <a
+                      href={addressMapHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={
+                        p
+                          ? "mt-3 inline-flex items-center gap-1.5 rounded-full border border-[color:var(--p-accent)] px-3 py-1.5 text-sm font-medium text-[var(--p-accent)] transition-colors hover:bg-[var(--p-secondary)]"
+                          : `mt-3 inline-flex items-center gap-1.5 rounded-full border border-zinc-500 px-3 py-1.5 text-sm font-medium transition-colors ${a.borderNav} ${a.textHover}`
+                      }
+                    >
+                      {addressMapLabel}
+                    </a>
+                  ) : null}
                 </div>
               </div>
               <div className="flex gap-4">
@@ -468,18 +426,22 @@ export function SalesSite({ site }: { site: SiteConfig }) {
                   <p>{site.contact.phone}</p>
                 </div>
               </div>
-              <div className="flex gap-4">
-                <span
-                  className={p ? contactDotClass : `mt-1.5 h-2 w-2 shrink-0 rounded-full ${a.bg}`}
-                  aria-hidden
-                />
-                <div>
-                  <p className={p ? "font-semibold text-[var(--p-text)]" : "font-semibold text-white"}>
-                    Email
-                  </p>
-                  <p>{site.contact.email}</p>
+              {hasEmail ? (
+                <div className="flex gap-4">
+                  <span
+                    className={p ? contactDotClass : `mt-1.5 h-2 w-2 shrink-0 rounded-full ${a.bg}`}
+                    aria-hidden
+                  />
+                  <div>
+                    <p
+                      className={p ? "font-semibold text-[var(--p-text)]" : "font-semibold text-white"}
+                    >
+                      Email
+                    </p>
+                    <p>{site.contact.email}</p>
+                  </div>
                 </div>
-              </div>
+              ) : null}
             </div>
           </div>
           <div
@@ -496,26 +458,30 @@ export function SalesSite({ site }: { site: SiteConfig }) {
               {site.reservation.subtitle}
             </p>
             <div className="space-y-3">
-              <a
-                href={telHref(site.contact.phone)}
-                className={
-                  p
-                    ? `flex w-full items-center justify-center gap-2 rounded-full py-4 font-bold transition-opacity ${onAccent} bg-[var(--p-accent)] hover:opacity-90`
-                    : `flex w-full items-center justify-center gap-2 rounded-full py-4 font-bold ${onAccent} transition-colors ${a.bg} ${a.bgHover}`
-                }
-              >
-                Call {site.contact.phone}
-              </a>
-              <a
-                href={`mailto:${site.contact.email}`}
-                className={
-                  p
-                    ? "flex w-full items-center justify-center gap-2 rounded-full border border-[color:var(--p-accent)] py-4 text-[var(--p-accent)] transition-colors hover:bg-[var(--p-secondary)]"
-                    : `flex w-full items-center justify-center gap-2 rounded-full border border-zinc-600 py-4 transition-colors ${a.borderNav} ${a.textHover}`
-                }
-              >
-                Email us
-              </a>
+              {showReservationCall && site.contact.phone?.trim() ? (
+                <a
+                  href={telHref(site.contact.phone)}
+                  className={
+                    p
+                      ? `flex w-full items-center justify-center gap-2 rounded-full py-4 font-bold transition-opacity ${onAccent} bg-[var(--p-accent)] hover:opacity-90`
+                      : `flex w-full items-center justify-center gap-2 rounded-full py-4 font-bold ${onAccent} transition-colors ${a.bg} ${a.bgHover}`
+                  }
+                >
+                  Call {site.contact.phone}
+                </a>
+              ) : null}
+              {hasEmail ? (
+                <a
+                  href={`mailto:${site.contact.email}`}
+                  className={
+                    p
+                      ? "flex w-full items-center justify-center gap-2 rounded-full border border-[color:var(--p-accent)] py-4 text-[var(--p-accent)] transition-colors hover:bg-[var(--p-secondary)]"
+                      : `flex w-full items-center justify-center gap-2 rounded-full border border-zinc-600 py-4 transition-colors ${a.borderNav} ${a.textHover}`
+                  }
+                >
+                  Email us
+                </a>
+              ) : null}
             </div>
             <ReservationSocialLinks
               social={site.contact.social}

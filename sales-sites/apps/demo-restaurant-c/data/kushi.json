@@ -1,5 +1,5 @@
 {
-  "siteKey": "demo-kushi",
+  "siteKey": "kushi-palm-cove-demo",
   "template": "restaurant",
   "brand": {
     "name": "KUSHI",
@@ -27,7 +27,7 @@
     ],
     "primaryCta": { "label": "Book a Table", "href": "mailto:booking@kushiqld.com" },
     "secondaryCta": { "label": "View Menu", "href": "#menu" },
-    "backgroundImage": "/hero.jpg",
+    "backgroundImage": "/kushi/hero.jpg",
     "meta": [
       { "text": "Daily 5pm – 9:30pm" },
       { "text": "Floor 2, 73 Williams Esplanade" },
@@ -52,9 +52,9 @@
     "eyebrow": "Gallery",
     "title": "From Our Kitchen",
     "images": [
-      { "src": "/food-yakitori.jpg", "alt": "Charcoal Yakitori" },
-      { "src": "/food-niku.jpg", "alt": "Grilled Meat" },
-      { "src": "/food-edamame.jpg", "alt": "Edamame" }
+      { "src": "/kushi/food-yakitori.jpg", "alt": "Charcoal Yakitori" },
+      { "src": "/kushi/food-niku.jpg", "alt": "Grilled Meat" },
+      { "src": "/kushi/food-edamame.jpg", "alt": "Edamame" }
     ]
   },
   "menu": {

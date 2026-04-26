@@ -30,9 +30,15 @@ export function ReservationSocialLinks({
   palette,
   accent,
 }: ReservationSocialLinksProps) {
-  const mapsHref = social.maps?.trim() || resolveAddressMapHref(address);
   const ig = social.instagram?.trim();
   const fb = social.facebook?.trim();
+  const mapsField = social.maps;
+  const mapsHref =
+    mapsField === ""
+      ? null
+      : mapsField?.trim()
+        ? mapsField.trim()
+        : resolveAddressMapHref(address);
 
   const linkClass = palette
     ? palette.highlight?.trim()
@@ -43,7 +49,11 @@ export function ReservationSocialLinks({
   const items: { key: string; href: string; label: string }[] = [];
   if (ig) items.push({ key: "ig", href: ig, label: "Instagram" });
   if (fb) items.push({ key: "fb", href: fb, label: "Facebook" });
-  items.push({ key: "maps", href: mapsHref, label: "Location" });
+  if (mapsHref) items.push({ key: "maps", href: mapsHref, label: "Location" });
+
+  if (items.length === 0) {
+    return null;
+  }
 
   return (
     <div

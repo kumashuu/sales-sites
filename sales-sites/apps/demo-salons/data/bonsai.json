@@ -1,0 +1,187 @@
+{
+  "siteKey": "bonsai-cairns-beauty-demo",
+  "template": "beauty",
+  "brand": {
+    "name": "BONSAI",
+    "locationLine": "45 Grafton St · Cairns City, QLD"
+  },
+  "seo": {
+    "title": "Bonsai Hair Salon | Japanese hair specialist · Cairns CBD",
+    "description": "Japanese-run hair salon in Cairns. Shiseido Japanese permanent straightening, wedding hair and makeup, Yukata rental, and Japanese hair care products — 45 Grafton Street."
+  },
+  "theme": {
+    "accent": "rose",
+    "fontPreset": "notoSansJp",
+    "palette": {
+      "background": "#FAF8F5",
+      "mainText": "#2A2622",
+      "subText": "#6F6A65",
+      "accent": "#6B4E3D",
+      "secondary": "#EDE8E1",
+      "highlight": "#8B6914"
+    }
+  },
+  "nav": {
+    "ctaLabel": "Services",
+    "ctaHref": "#services"
+  },
+  "hero": {
+    "eyebrow": "Japanese-owned · Experienced stylists",
+    "title": "BON",
+    "highlight": "SAI",
+    "descriptionLines": [
+      "Cairns climate–friendly techniques, Japanese product lines,",
+      "and a calm salon floor — cuts, straightening, weddings, and Yukata."
+    ],
+    "primaryCta": {
+      "label": "Call to book",
+      "href": "tel:+61740414313"
+    },
+    "secondaryCta": { "label": "View services", "href": "#services" },
+    "backgroundImage": "https://images.unsplash.com/photo-1560066984-138d9a4d9147?w=1920&q=80&auto=format&fit=crop",
+    "meta": [
+      { "text": "Tue–Fri 9:00am – 6:00pm" },
+      { "text": "Sat 9:00am – 5:00pm" },
+      { "text": "Closed Sun, Mon & public holidays" }
+    ]
+  },
+  "features": [
+    {
+      "title": "Japanese permanent straightening",
+      "desc": "Shiseido Crystallizing Straight — less damage, softer feel. Suited to Cairns humidity. Regulars may qualify for a loyalty price (T&Cs apply on the current rate)."
+    },
+    {
+      "title": "Wedding hair & make-up",
+      "desc": "Bridal styling with rehearsal options, groom and guest hair and make-up, ceremony support, and a change before the reception. Ask for a free quote."
+    },
+    {
+      "title": "Yukata hire & dressing",
+      "desc": "Rental and dressing for Bon dance, New Year’s fireworks, and local parades. Limited numbers — book early once you have a date."
+    }
+  ],
+  "beforeAfter": {
+    "sectionEyebrow": "Results",
+    "sectionTitle": "Before & after",
+    "subtitle": "Indicative layouts only — swap in your own photography with client permission.",
+    "labels": { "before": "Before", "after": "After" },
+    "footerNote": "Demo uses stock images. Published sites should use real before/after with consent and honest captions.",
+    "items": [
+      {
+        "title": "Japanese permanent straightening",
+        "caption": "Shiseido Crystallizing Straight — smoother daily styling in humid weather (illustrative photos).",
+        "before": {
+          "src": "https://images.unsplash.com/photo-1503951914875-452162b0a672?w=900&q=80&auto=format&fit=crop",
+          "alt": "Before: natural texture and volume before straightening"
+        },
+        "after": {
+          "src": "https://images.unsplash.com/photo-1522337360783-421949cb6030?w=900&q=80&auto=format&fit=crop",
+          "alt": "After: smooth, straight finish"
+        }
+      },
+      {
+        "title": "Colour & gloss refresh",
+        "caption": "Tone and shine refresh — consult for your hair condition and goals.",
+        "before": {
+          "src": "https://images.unsplash.com/photo-1562322140-8baeececf3df?w=900&q=80&auto=format&fit=crop",
+          "alt": "Before: colour fade and dryness"
+        },
+        "after": {
+          "src": "https://images.unsplash.com/photo-1560066984-138d9a4d9147?w=900&q=80&auto=format&fit=crop",
+          "alt": "After: refreshed colour and finish"
+        }
+      }
+    ]
+  },
+  "gallery": {
+    "eyebrow": "In the salon",
+    "title": "Hair & atmosphere",
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=800&q=80&auto=format&fit=crop",
+        "alt": "Stylist working on a client in a modern salon"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1562322140-8baeececf3df?w=800&q=80&auto=format&fit=crop",
+        "alt": "Haircut and finish — natural light in the cutting area"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1633681926022-84c0eaa18b0f?w=800&q=80&auto=format&fit=crop",
+        "alt": "Salon retail shelf with professional hair care products"
+      }
+    ]
+  },
+  "menu": {
+    "sectionEyebrow": "Indicative menu",
+    "sectionTitle": "Services & price guide",
+    "footerNote": "Prices and packages change — please confirm on the day you book. Wedding and straightening are quoted after consultation.",
+    "items": [
+      {
+        "name": "Women's cut & blow-dry",
+        "desc": "Cut and finish — tell us your daily styling routine and we'll shape for Cairns humidity",
+        "price": "from $85"
+      },
+      {
+        "name": "Men's cut",
+        "desc": "Clipper and scissor work, tidy finish",
+        "price": "from $45"
+      },
+      {
+        "name": "Japanese straightening (Shiseido)",
+        "desc": "Permanent straight with Crystallizing Straight — plan length and aftercare in salon",
+        "price": "quote"
+      },
+      {
+        "name": "Colour & treatments",
+        "desc": "Colour, gloss, and repair — patch test and strand test as needed",
+        "price": "quote"
+      },
+      {
+        "name": "Wedding hair & make-up",
+        "desc": "Bridal, groom, and guest packages — rehearsal and on-day timing available",
+        "price": "free quote"
+      },
+      {
+        "name": "Yukata rental & simple dressing",
+        "desc": "Rental and fitting for events — subject to stock",
+        "price": "from $60"
+      },
+      {
+        "name": "Japanese hair care retail",
+        "desc": "Take-home care and styling from Japanese lines stocked in-salon",
+        "price": "in-store"
+      }
+    ]
+  },
+  "contact": {
+    "sectionEyebrow": "Visit us",
+    "sectionTitle": "Bonsai Hair Salon",
+    "address": {
+      "label": "Address",
+      "lines": ["45 Grafton Street", "Cairns QLD 4870", "Australia"],
+      "mapLinkLabel": "Open in maps"
+    },
+    "hours": {
+      "label": "Hours",
+      "lines": [
+        "Tuesday–Friday: 9:00am – 6:00pm",
+        "Saturday: 9:00am – 5:00pm",
+        "Closed: Sunday, Monday, and public holidays"
+      ]
+    },
+    "phone": "07 4041 4313",
+    "social": {
+      "instagram": "https://www.instagram.com/bonsai_hairsalon/",
+      "facebook": "https://www.facebook.com/bonsaihair/",
+      "maps": "https://www.google.com/maps/search/?api=1&query=Bonsai+Hair+Salon+45+Grafton+Street+Cairns+QLD"
+    }
+  },
+  "reservation": {
+    "title": "Book by phone",
+    "subtitle": "The live venue may use other channels for bookings — this page is a sales demo. For accurate hours and services, use the contact details you agree with the salon."
+  },
+  "footer": {
+    "brandLine": "Bonsai Hair Salon",
+    "subLine": "Sales sample — not the live venue. Public facts referenced from the venue’s public web presence (e.g. bonsaihairsalon.com.au). Images: Unsplash (demo only).",
+    "year": 2026
+  }
+}

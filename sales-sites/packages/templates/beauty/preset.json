@@ -1,0 +1,97 @@
+{
+  "siteKey": "beauty-template-demo",
+  "template": "beauty",
+  "brand": {
+    "name": "YOUR SALON",
+    "locationLine": "Suburb · Cairns, QLD"
+  },
+  "seo": {
+    "title": "Your Salon | Hair & colour · Cairns",
+    "description": "Replace with your meta description."
+  },
+  "theme": {
+    "accent": "rose",
+    "fontPreset": "notoSansJp",
+    "palette": {
+      "background": "#FAF8F5",
+      "mainText": "#2A2622",
+      "subText": "#6F6A65",
+      "accent": "#6B4E3D",
+      "secondary": "#EDE8E1"
+    }
+  },
+  "nav": {
+    "ctaLabel": "Services",
+    "ctaHref": "#services"
+  },
+  "hero": {
+    "eyebrow": "Tagline",
+    "title": "YOUR",
+    "highlight": "BRAND",
+    "descriptionLines": ["Line one.", "Line two."],
+    "primaryCta": { "label": "Call", "href": "tel:" },
+    "secondaryCta": { "label": "Services", "href": "#services" },
+    "backgroundImage": "/hero.jpg",
+    "meta": [{ "text": "Hours line 1" }, { "text": "Hours line 2" }]
+  },
+  "features": [
+    { "title": "Service pillar 1", "desc": "Short copy." },
+    { "title": "Service pillar 2", "desc": "Short copy." },
+    { "title": "Service pillar 3", "desc": "Short copy." }
+  ],
+  "beforeAfter": {
+    "sectionEyebrow": "Results",
+    "sectionTitle": "Before & after",
+    "subtitle": "Optional section — omit the whole `beforeAfter` key to hide.",
+    "labels": { "before": "Before", "after": "After" },
+    "items": [
+      {
+        "title": "Treatment name",
+        "caption": "Short note under the pair.",
+        "before": { "src": "/before-1.jpg", "alt": "Before" },
+        "after": { "src": "/after-1.jpg", "alt": "After" }
+      }
+    ]
+  },
+  "gallery": {
+    "eyebrow": "Gallery",
+    "title": "Lookbook",
+    "images": [
+      { "src": "/gallery-1.jpg", "alt": "Image 1" },
+      { "src": "/gallery-2.jpg", "alt": "Image 2" },
+      { "src": "/gallery-3.jpg", "alt": "Image 3" }
+    ]
+  },
+  "menu": {
+    "sectionEyebrow": "Menu",
+    "sectionTitle": "Services & prices",
+    "footerNote": "Optional footnote.",
+    "items": [
+      { "name": "Cut & blow-dry", "desc": "Description", "price": "from $00" }
+    ]
+  },
+  "contact": {
+    "sectionEyebrow": "Contact",
+    "sectionTitle": "Your Salon",
+    "address": {
+      "label": "Address",
+      "lines": ["Street", "Suburb QLD", "Australia"]
+    },
+    "hours": { "label": "Hours", "lines": ["Sample hours"] },
+    "phone": "0400 000 000",
+    "social": {
+      "instagram": "https://www.instagram.com/",
+      "facebook": "https://www.facebook.com/",
+      "maps": "https://www.google.com/maps"
+    }
+  },
+  "reservation": {
+    "title": "Book",
+    "subtitle": "How to book."
+  },
+  "footer": {
+    "brandLine": "Your Salon",
+    "subLine": "Footer note.",
+    "year": 2026
+  }
+}

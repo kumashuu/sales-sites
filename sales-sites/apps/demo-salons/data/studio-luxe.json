@@ -1,0 +1,151 @@
+{
+  "siteKey": "studio-luxe-fnq-demo",
+  "template": "beauty",
+  "brand": {
+    "name": "STUDIO LUXE",
+    "locationLine": "Edge Hill · Cairns, QLD"
+  },
+  "seo": {
+    "title": "Studio Luxe | Hair & colour · Edge Hill, Cairns (demo)",
+    "description": "Second profile for the demo-salons app — switch with NEXT_PUBLIC_SITE_KEY=studio-luxe. Fictional name for template preview."
+  },
+  "theme": {
+    "accent": "emerald",
+    "fontPreset": "vabiDasabi",
+    "palette": {
+      "background": "#F7F5F0",
+      "mainText": "#1C1C1C",
+      "subText": "#5C5C5C",
+      "accent": "#0F766E",
+      "secondary": "#E2E8DD"
+    }
+  },
+  "nav": {
+    "ctaLabel": "Services",
+    "ctaHref": "#services"
+  },
+  "hero": {
+    "eyebrow": "Edge Hill — demo profile B",
+    "title": "STUDIO",
+    "highlight": "LUXE",
+    "descriptionLines": [
+      "Use this JSON to preview a different brand on the same template.",
+      "Set NEXT_PUBLIC_SITE_KEY=studio-luxe when building or running locally."
+    ],
+    "primaryCta": {
+      "label": "Email us",
+      "href": "mailto:hello@studio-luxe-demo.example"
+    },
+    "secondaryCta": { "label": "Services", "href": "#services" },
+    "backgroundImage": "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=1920&q=80&auto=format&fit=crop",
+    "meta": [
+      { "text": "Tue–Sat (demo hours)" },
+      { "text": "By appointment" },
+      { "text": "Cairns region" }
+    ]
+  },
+  "features": [
+    {
+      "title": "Same template, new brand",
+      "desc": "Copy `data/studio-luxe.json`, rename, and add a key in `lib/site.ts` for each client or DM variant."
+    },
+    {
+      "title": "Light palette option",
+      "desc": "Palette drives buttons, text, and cards; accent keys still map to the shared SalesSite design."
+    },
+    {
+      "title": "Optional email CTA",
+      "desc": "This profile includes an email so the email row and button appear. Omit `contact.email` to hide them (Bonsai profile)."
+    }
+  ],
+  "beforeAfter": {
+    "sectionEyebrow": "Swatch B",
+    "sectionTitle": "Before & after (demo)",
+    "subtitle": "Second site key uses the same TreatmentBeforeAfter block with different copy.",
+    "items": [
+      {
+        "title": "Layout preview",
+        "caption": "Fictional pairing for the studio-luxe profile.",
+        "before": {
+          "src": "https://images.unsplash.com/photo-1633681926022-84c0eaa18b0f?w=900&q=80&auto=format&fit=crop",
+          "alt": "Demo before"
+        },
+        "after": {
+          "src": "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=900&q=80&auto=format&fit=crop",
+          "alt": "Demo after"
+        }
+      }
+    ]
+  },
+  "gallery": {
+    "eyebrow": "Gallery",
+    "title": "Placeholder looks",
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1633681926022-84c0eaa18b0f?w=800&q=80&auto=format&fit=crop",
+        "alt": "Demo — salon product shelf"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1560066984-138d9a4d9147?w=800&q=80&auto=format&fit=crop",
+        "alt": "Demo — colour session"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1522337360783-421949cb6030?w=800&q=80&auto=format&fit=crop",
+        "alt": "Demo — styling moment"
+      }
+    ]
+  },
+  "menu": {
+    "sectionEyebrow": "Service ideas",
+    "sectionTitle": "Indicative services",
+    "footerNote": "Fictional prices for layout preview only.",
+    "items": [
+      {
+        "name": "Cut & finish",
+        "desc": "Consultation, cut, blow-dry",
+        "price": "from $90"
+      },
+      {
+        "name": "Colour refresh",
+        "desc": "Roots, gloss, or all-over as discussed",
+        "price": "from $150"
+      },
+      {
+        "name": "Treatment add-on",
+        "desc": "Deep conditioning or bond repair",
+        "price": "from $40"
+      },
+      {
+        "name": "Blow-dry & style",
+        "desc": "For events and photo days",
+        "price": "from $55"
+      }
+    ]
+  },
+  "contact": {
+    "sectionEyebrow": "Contact (demo)",
+    "sectionTitle": "Studio Luxe",
+    "address": {
+      "label": "Address",
+      "lines": ["00 Sample Road", "Edge Hill QLD 4870", "Australia"]
+    },
+    "hours": {
+      "label": "Hours",
+      "lines": ["Tuesday–Saturday: by appointment (demo)"]
+    },
+    "phone": "0400 000 000",
+    "email": "hello@studio-luxe-demo.example",
+    "social": {
+      "maps": "https://www.google.com/maps/search/?api=1&query=Edge+Hill+Cairns+QLD"
+    }
+  },
+  "reservation": {
+    "title": "Make an enquiry",
+    "subtitle": "Fictional studio for testing the `studio-luxe` site key. Not a real business."
+  },
+  "footer": {
+    "brandLine": "Studio Luxe",
+    "subLine": "Fictional brand — for multi-site / env switching demo only.",
+    "year": 2026
+  }
+}

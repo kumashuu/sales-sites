@@ -10,7 +10,8 @@
     "lint": "turbo lint",
     "dev:restaurant": "pnpm --filter @sales-sites/demo-restaurant-c dev",
     "dev:cafe": "pnpm --filter @sales-sites/demo-cafe-a dev",
-    "dev:salon": "pnpm --filter @sales-sites/demo-salon-b dev"
+    "dev:salon": "pnpm --filter @sales-sites/demo-salon-b dev",
+    "dev:salons": "pnpm --filter @sales-sites/demo-salons dev"
   },
   "devDependencies": {
     "@tailwindcss/oxide-darwin-arm64": "^4.2.2",
