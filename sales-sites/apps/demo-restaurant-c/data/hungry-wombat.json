@@ -1,0 +1,130 @@
+{
+  "siteKey": "hungry-wombat-placeholder",
+  "template": "restaurant",
+  "brand": {
+    "name": "wakuwaku wombat",
+    "locationLine": "Casual · Tendon, udon & small plates (template)"
+  },
+  "seo": {
+    "title": "wakuwaku wombat | Tendon, udon & comfort bowls (template)",
+    "description": "Demo layout for a relaxed dine-in: crispy tendon rice bowls, hot udon, and sides. Replace suburb, hours, and menu with your client’s real details — copy is generic for sales use."
+  },
+  "theme": {
+    "accent": "amber",
+    "fontPreset": "notoSansJp",
+    "palette": {
+      "background": "#FDF8F3",
+      "mainText": "#1C1917",
+      "subText": "#57534E",
+      "accent": "#B45309",
+      "secondary": "#E7E5E4",
+      "highlight": "#92400E"
+    }
+  },
+  "nav": {
+    "ctaLabel": "Menu",
+    "ctaHref": "#menu"
+  },
+  "hero": {
+    "eyebrow": "Your area · Main strip or precinct (example)",
+    "title": "wakuwaku",
+    "highlight": "WOMBAT",
+    "descriptionLines": [
+      "Golden tempura on rice, steam from the noodle pot, and a menu you can list by bowl —",
+      "placeholder copy only: swap in your real story, area, and opening hours when you show a client."
+    ],
+    "primaryCta": {
+      "label": "View menu",
+      "href": "#menu"
+    },
+    "secondaryCta": { "label": "Sample menu", "href": "#menu" },
+    "backgroundImage": "/hungry-wombat/hero.jpg",
+    "meta": [
+      { "text": "Lunch + dinner (example — set real hours)" },
+      { "text": "Bowls, udon & take-away (example)" },
+      { "text": "Street address goes in site.json" }
+    ]
+  },
+  "features": [
+    {
+      "title": "Tendon & rice bowls",
+      "desc": "Tempura, sauce, and rice in one bowl — a strong hero shot for a casual Japanese line. Tweak the wording for your client’s set meals or lunch specials; photos on this page are for layout only."
+    },
+    {
+      "title": "Noodle counter mood",
+      "desc": "Hot udon for a quick table turn or a sit-down. Use this block to tease soup bases, toppings, and whether you do take-away or dine-in only."
+    },
+    {
+      "title": "Sides to open the meal",
+      "desc": "Edamame, pickles, and other small starts — one line is enough in a sales deck; expand when the real menu is ready."
+    }
+  ],
+  "gallery": {
+    "eyebrow": "Menu-style photos",
+    "title": "Tendon, udon, sides",
+    "images": [
+      {
+        "src": "/hungry-wombat/food-tendon.jpeg",
+        "alt": "Tempura tendon rice bowl with egg and prawn on the side"
+      },
+      {
+        "src": "/hungry-wombat/food-udon.jpg",
+        "alt": "Hot udon noodle soup in a bowl with toppings"
+      },
+      {
+        "src": "/hungry-wombat/food-edamame.jpg",
+        "alt": "Steamed edamame in a small dish with salt"
+      }
+    ]
+  },
+  "menu": {
+    "sectionEyebrow": "Menu ideas",
+    "sectionTitle": "Bowls, noodles & sides (placeholders)",
+    "footerNote": "Names and prices are for layout. Drop in a real menu or PDF link when the venue details are set.",
+    "items": [
+      { "name": "Mixed tendon bowl", "desc": "Assorted tempura, rice, sauce — list your sizes (S / M / L)", "price": "—" },
+      { "name": "Prawn & veg tendon", "desc": "Swap proteins to match the photo or your line-up", "price": "—" },
+      { "name": "Hot udon (plain or kitsune)", "desc": "Soup, noodles, and toppings — describe in your words", "price": "—" },
+      { "name": "Curry udon or cold option", "desc": "Optional second line for seasonal noodles", "price": "—" },
+      { "name": "Edamame or pickled starter", "desc": "Small plate — price as you need", "price": "—" },
+      { "name": "Side rice or miso", "desc": "Add-ons; remove rows you don’t use", "price": "—" }
+    ]
+  },
+  "contact": {
+    "sectionEyebrow": "Contact",
+    "sectionTitle": "Your business name & suburb",
+    "address": {
+      "label": "Address (placeholder)",
+      "lines": [
+        "Shop or lot number, street or arcade",
+        "Suburb, State & postcode, Country"
+      ],
+      "showMapLink": true
+    },
+    "hours": {
+      "label": "Hours (replace with the venue’s)",
+      "lines": [
+        "Mon – Sun: set kitchen + bar times here (example: 12:00 – late)",
+        "Public holidays: note policy in one line"
+      ]
+    },
+    "phone": "00 0000 0000",
+    "showCallButton": true,
+    "decorativeContactLinks": true,
+    "email": "hello@example.com",
+    "social": {
+      "instagram": "https://example.com/instagram",
+      "facebook": "https://example.com/facebook",
+      "maps": "https://example.com/maps"
+    }
+  },
+  "reservation": {
+    "title": "Book a table or takeaway",
+    "subtitle": "Layout-only buttons below: when you go live, turn off “decorative” links in site.json and add real phone, email, and socials."
+  },
+  "footer": {
+    "brandLine": "wakuwaku wombat (template)",
+    "subLine": "Content is generic for demos: replace brand, address, and links before going live. Food assets: hero.jpg, food-tendon.jpeg, food-udon.jpg, food-edamame.jpg in /public/hungry-wombat/.",
+    "year": 2026
+  }
+}

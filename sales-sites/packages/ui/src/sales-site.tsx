@@ -38,6 +38,13 @@ export function SalesSite({ site }: { site: SiteConfig }) {
   const showReservationCall = site.contact.showCallButton !== false;
   const menuSectionId = site.template === "beauty" ? "services" : "menu";
   const hasEmail = Boolean(site.contact.email?.trim());
+  const decorative = site.contact.decorativeContactLinks === true;
+  const blockedDecorativeHref = (href: string) => {
+    if (!decorative) return false;
+    const h = href.trim().toLowerCase();
+    return h.startsWith("tel:") || h.startsWith("mailto:") || h.startsWith("sms:");
+  };
+  const actionDemoTitle = "Layout preview (link disabled in this build)";
 
   const hasHighlight = !!p?.highlight?.trim();
 
@@ -105,16 +112,29 @@ export function SalesSite({ site }: { site: SiteConfig }) {
               {site.brand.name}
             </h1>
           </div>
-          <a
-            href={site.nav.ctaHref}
-            className={
-              p
-                ? `rounded-full px-5 py-2 text-sm font-bold transition-opacity ${onAccent} bg-[var(--p-accent)] hover:opacity-90`
-                : `rounded-full px-5 py-2 text-sm font-bold ${onAccent} transition-colors ${a.bg} ${a.bgHover}`
-            }
-          >
-            {site.nav.ctaLabel}
-          </a>
+          {blockedDecorativeHref(site.nav.ctaHref) ? (
+            <span
+              className={
+                p
+                  ? `cursor-default select-none rounded-full px-5 py-2 text-sm font-bold ${onAccent} bg-[var(--p-accent)]`
+                  : `cursor-default select-none rounded-full px-5 py-2 text-sm font-bold ${onAccent} ${a.bg}`
+              }
+              title={actionDemoTitle}
+            >
+              {site.nav.ctaLabel}
+            </span>
+          ) : (
+            <a
+              href={site.nav.ctaHref}
+              className={
+                p
+                  ? `rounded-full px-5 py-2 text-sm font-bold transition-opacity ${onAccent} bg-[var(--p-accent)] hover:opacity-90`
+                  : `rounded-full px-5 py-2 text-sm font-bold ${onAccent} transition-colors ${a.bg} ${a.bgHover}`
+              }
+            >
+              {site.nav.ctaLabel}
+            </a>
+          )}
         </div>
       </nav>
 
@@ -167,26 +187,52 @@ export function SalesSite({ site }: { site: SiteConfig }) {
             ))}
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <a
-              href={site.hero.primaryCta.href}
-              className={
-                p
-                  ? `rounded-full px-8 py-4 text-lg font-bold transition-opacity ${onAccent} bg-[var(--p-accent)] hover:opacity-90`
-                  : `rounded-full px-8 py-4 text-lg font-bold ${onAccent} transition-colors ${a.bg} ${a.bgHover}`
-              }
-            >
-              {site.hero.primaryCta.label}
-            </a>
-            <a
-              href={site.hero.secondaryCta.href}
-              className={
-                p
-                  ? "rounded-full border border-[color:var(--p-accent)] bg-transparent px-8 py-4 text-lg text-[var(--p-accent)] transition-colors hover:bg-[var(--p-secondary)]"
-                  : `rounded-full border border-zinc-600 px-8 py-4 text-lg transition-colors ${a.borderNav} ${a.textHover}`
-              }
-            >
-              {site.hero.secondaryCta.label}
-            </a>
+            {blockedDecorativeHref(site.hero.primaryCta.href) ? (
+              <span
+                className={
+                  p
+                    ? `cursor-default select-none rounded-full px-8 py-4 text-lg font-bold ${onAccent} bg-[var(--p-accent)]`
+                    : `cursor-default select-none rounded-full px-8 py-4 text-lg font-bold ${onAccent} ${a.bg}`
+                }
+                title={actionDemoTitle}
+              >
+                {site.hero.primaryCta.label}
+              </span>
+            ) : (
+              <a
+                href={site.hero.primaryCta.href}
+                className={
+                  p
+                    ? `rounded-full px-8 py-4 text-lg font-bold transition-opacity ${onAccent} bg-[var(--p-accent)] hover:opacity-90`
+                    : `rounded-full px-8 py-4 text-lg font-bold ${onAccent} transition-colors ${a.bg} ${a.bgHover}`
+                }
+              >
+                {site.hero.primaryCta.label}
+              </a>
+            )}
+            {blockedDecorativeHref(site.hero.secondaryCta.href) ? (
+              <span
+                className={
+                  p
+                    ? "cursor-default select-none rounded-full border border-[color:var(--p-accent)] bg-transparent px-8 py-4 text-lg text-[var(--p-accent)]"
+                    : `cursor-default select-none rounded-full border border-zinc-600 px-8 py-4 text-lg ${a.borderNav} ${a.text}`
+                }
+                title={actionDemoTitle}
+              >
+                {site.hero.secondaryCta.label}
+              </span>
+            ) : (
+              <a
+                href={site.hero.secondaryCta.href}
+                className={
+                  p
+                    ? "rounded-full border border-[color:var(--p-accent)] bg-transparent px-8 py-4 text-lg text-[var(--p-accent)] transition-colors hover:bg-[var(--p-secondary)]"
+                    : `rounded-full border border-zinc-600 px-8 py-4 text-lg transition-colors ${a.borderNav} ${a.textHover}`
+                }
+              >
+                {site.hero.secondaryCta.label}
+              </a>
+            )}
           </div>
           <div
             className={
@@ -385,18 +431,31 @@ export function SalesSite({ site }: { site: SiteConfig }) {
                     <p key={line}>{line}</p>
                   ))}
                   {showAddressMapLink ? (
-                    <a
-                      href={addressMapHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={
-                        p
-                          ? "mt-3 inline-flex items-center gap-1.5 rounded-full border border-[color:var(--p-accent)] px-3 py-1.5 text-sm font-medium text-[var(--p-accent)] transition-colors hover:bg-[var(--p-secondary)]"
-                          : `mt-3 inline-flex items-center gap-1.5 rounded-full border border-zinc-500 px-3 py-1.5 text-sm font-medium transition-colors ${a.borderNav} ${a.textHover}`
-                      }
-                    >
-                      {addressMapLabel}
-                    </a>
+                    decorative ? (
+                      <span
+                        className={
+                          p
+                            ? "mt-3 inline-flex cursor-default select-none items-center gap-1.5 rounded-full border border-[color:var(--p-accent)] px-3 py-1.5 text-sm font-medium text-[var(--p-accent)]"
+                            : `mt-3 inline-flex cursor-default select-none items-center gap-1.5 rounded-full border border-zinc-500 px-3 py-1.5 text-sm font-medium ${a.borderNav} ${a.text}`
+                        }
+                        title={actionDemoTitle}
+                      >
+                        {addressMapLabel}
+                      </span>
+                    ) : (
+                      <a
+                        href={addressMapHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={
+                          p
+                            ? "mt-3 inline-flex items-center gap-1.5 rounded-full border border-[color:var(--p-accent)] px-3 py-1.5 text-sm font-medium text-[var(--p-accent)] transition-colors hover:bg-[var(--p-secondary)]"
+                            : `mt-3 inline-flex items-center gap-1.5 rounded-full border border-zinc-500 px-3 py-1.5 text-sm font-medium transition-colors ${a.borderNav} ${a.textHover}`
+                        }
+                      >
+                        {addressMapLabel}
+                      </a>
+                    )
                   ) : null}
                 </div>
               </div>
@@ -459,28 +518,54 @@ export function SalesSite({ site }: { site: SiteConfig }) {
             </p>
             <div className="space-y-3">
               {showReservationCall && site.contact.phone?.trim() ? (
-                <a
-                  href={telHref(site.contact.phone)}
-                  className={
-                    p
-                      ? `flex w-full items-center justify-center gap-2 rounded-full py-4 font-bold transition-opacity ${onAccent} bg-[var(--p-accent)] hover:opacity-90`
-                      : `flex w-full items-center justify-center gap-2 rounded-full py-4 font-bold ${onAccent} transition-colors ${a.bg} ${a.bgHover}`
-                  }
-                >
-                  Call {site.contact.phone}
-                </a>
+                decorative ? (
+                  <span
+                    className={
+                      p
+                        ? `flex w-full cursor-default select-none items-center justify-center gap-2 rounded-full py-4 font-bold ${onAccent} bg-[var(--p-accent)]`
+                        : `flex w-full cursor-default select-none items-center justify-center gap-2 rounded-full py-4 font-bold ${onAccent} ${a.bg}`
+                    }
+                    title={actionDemoTitle}
+                  >
+                    Call {site.contact.phone}
+                  </span>
+                ) : (
+                  <a
+                    href={telHref(site.contact.phone)}
+                    className={
+                      p
+                        ? `flex w-full items-center justify-center gap-2 rounded-full py-4 font-bold transition-opacity ${onAccent} bg-[var(--p-accent)] hover:opacity-90`
+                        : `flex w-full items-center justify-center gap-2 rounded-full py-4 font-bold ${onAccent} transition-colors ${a.bg} ${a.bgHover}`
+                    }
+                  >
+                    Call {site.contact.phone}
+                  </a>
+                )
               ) : null}
               {hasEmail ? (
-                <a
-                  href={`mailto:${site.contact.email}`}
-                  className={
-                    p
-                      ? "flex w-full items-center justify-center gap-2 rounded-full border border-[color:var(--p-accent)] py-4 text-[var(--p-accent)] transition-colors hover:bg-[var(--p-secondary)]"
-                      : `flex w-full items-center justify-center gap-2 rounded-full border border-zinc-600 py-4 transition-colors ${a.borderNav} ${a.textHover}`
-                  }
-                >
-                  Email us
-                </a>
+                decorative ? (
+                  <span
+                    className={
+                      p
+                        ? "flex w-full cursor-default select-none items-center justify-center gap-2 rounded-full border border-[color:var(--p-accent)] py-4 text-[var(--p-accent)]"
+                        : `flex w-full cursor-default select-none items-center justify-center gap-2 rounded-full border border-zinc-600 py-4 ${a.borderNav} ${a.text}`
+                    }
+                    title={actionDemoTitle}
+                  >
+                    Email us
+                  </span>
+                ) : (
+                  <a
+                    href={`mailto:${site.contact.email}`}
+                    className={
+                      p
+                        ? "flex w-full items-center justify-center gap-2 rounded-full border border-[color:var(--p-accent)] py-4 text-[var(--p-accent)] transition-colors hover:bg-[var(--p-secondary)]"
+                        : `flex w-full items-center justify-center gap-2 rounded-full border border-zinc-600 py-4 transition-colors ${a.borderNav} ${a.textHover}`
+                    }
+                  >
+                    Email us
+                  </a>
+                )
               ) : null}
             </div>
             <ReservationSocialLinks
@@ -488,6 +573,7 @@ export function SalesSite({ site }: { site: SiteConfig }) {
               address={site.contact.address}
               palette={p}
               accent={site.theme.accent}
+              decorative={decorative}
             />
           </div>
         </div>

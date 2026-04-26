@@ -105,6 +105,10 @@ export interface SiteConfig {
     phone: string;
     /** false のとき予約カード内の「Call」ボタン（tel:）を出さない。番号は左カラムにテキストのまま表示可 */
     showCallButton?: boolean;
+    /**
+     * true のとき: Call / Email ボタン、住所下の地図ピル、SNS行を**見た目はそのまま**出すが `tel:` / `mailto:` / 外部遷移は付けない（販促デモ用）。
+     */
+    decorativeContactLinks?: boolean;
     /** 未設定・空のときは連絡欄のメール行と予約カードのメールボタンを出さない */
     email?: string;
     /**

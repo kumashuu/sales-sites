@@ -9,6 +9,7 @@
     "build": "turbo build",
     "lint": "turbo lint",
     "dev:restaurant": "pnpm --filter @sales-sites/demo-restaurant-c dev",
+    "dev:restaurant-wombat": "NEXT_PUBLIC_SITE_KEY=hungry-wombat pnpm --filter @sales-sites/demo-restaurant-c dev",
     "dev:cafe": "pnpm --filter @sales-sites/demo-cafe-a dev",
     "dev:salon": "pnpm --filter @sales-sites/demo-salon-b dev",
     "dev:salons": "pnpm --filter @sales-sites/demo-salons dev"

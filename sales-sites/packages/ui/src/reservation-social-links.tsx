@@ -18,6 +18,8 @@ export type ReservationSocialLinksProps = {
   address: SiteConfig["contact"]["address"];
   palette: SiteConfig["theme"]["palette"] | undefined;
   accent: Accent;
+  /** true のときラベルは出すが `<a href>` にはしない */
+  decorative?: boolean;
 };
 
 /**
@@ -29,6 +31,7 @@ export function ReservationSocialLinks({
   address,
   palette,
   accent,
+  decorative = false,
 }: ReservationSocialLinksProps) {
   const ig = social.instagram?.trim();
   const fb = social.facebook?.trim();
@@ -45,6 +48,11 @@ export function ReservationSocialLinks({
       ? "text-sm text-[var(--p-sub)] transition-colors hover:text-[var(--p-highlight)]"
       : "text-sm text-[var(--p-sub)] transition-colors hover:text-[var(--p-accent)]"
     : `text-sm text-zinc-400 transition-colors ${ACCENT_LINK[accent].hover}`;
+
+  const staticClass = palette
+    ? "text-sm text-[var(--p-sub)]"
+    : "text-sm text-zinc-400";
+  const itemClass = decorative ? staticClass : linkClass;
 
   const items: { key: string; href: string; label: string }[] = [];
   if (ig) items.push({ key: "ig", href: ig, label: "Instagram" });
@@ -63,17 +71,27 @@ export function ReservationSocialLinks({
           : "mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 border-t border-zinc-800 pt-6"
       }
     >
-      {items.map((item) => (
-        <a
-          key={item.key}
-          href={item.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={linkClass}
-        >
-          {item.label}
-        </a>
-      ))}
+      {items.map((item) =>
+        decorative ? (
+          <span
+            key={item.key}
+            className={`${itemClass} cursor-default select-none`}
+            title="Layout preview (link disabled in this build)"
+          >
+            {item.label}
+          </span>
+        ) : (
+          <a
+            key={item.key}
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={linkClass}
+          >
+            {item.label}
+          </a>
+        ),
+      )}
     </div>
   );
 }

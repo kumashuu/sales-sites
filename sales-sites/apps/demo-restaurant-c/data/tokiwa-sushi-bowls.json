@@ -99,7 +99,7 @@
         "Shop or suite number, street",
         "Suburb, State & postcode, Country"
       ],
-      "showMapLink": false
+      "showMapLink": true
     },
     "hours": {
       "label": "Hours (replace with yours)",
@@ -109,14 +109,18 @@
       ]
     },
     "phone": "00 0000 0000",
-    "showCallButton": false,
+    "showCallButton": true,
+    "decorativeContactLinks": true,
+    "email": "hello@example.com",
     "social": {
-      "maps": ""
+      "instagram": "https://example.com/instagram",
+      "facebook": "https://example.com/facebook",
+      "maps": "https://example.com/maps"
     }
   },
   "reservation": {
     "title": "Bookings & take-away",
-    "subtitle": "Add your phone, email, and social links in site.json when you are ready. Map links, tel:, mailto:, and social buttons stay off in this template until you enable them."
+    "subtitle": "Buttons below are layout-only: Call, email, map, and socials look active but do not open apps or leave this preview build."
   },
   "footer": {
     "brandLine": "UMI Sushi (placeholder)",
