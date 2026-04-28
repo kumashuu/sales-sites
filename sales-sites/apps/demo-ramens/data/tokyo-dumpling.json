@@ -1,0 +1,153 @@
+{
+  "siteKey": "tokyo-dumpling-cairns",
+  "template": "restaurant",
+  "brand": {
+    "name": "Tokyo Dumpling",
+    "locationLine": "Cairns CBD · Lake Street"
+  },
+  "seo": {
+    "title": "Tokyo Dumpling | Dumplings, ramen & Japanese · Cairns",
+    "description": "House-made dumplings, ramen, and Japanese favourites on Lake St, Cairns city. Dine in, take-away, and delivery — check Facebook for today’s hours."
+  },
+  "theme": {
+    "accent": "emerald",
+    "fontPreset": "notoSansJp",
+    "palette": {
+      "background": "#09090b",
+      "mainText": "#fafafa",
+      "subText": "#a1a1aa",
+      "accent": "#34d399",
+      "secondary": "#3f3f46",
+      "highlight": "#fbbf24",
+      "accentForeground": "#020617"
+    }
+  },
+  "nav": {
+    "ctaLabel": "Menu",
+    "ctaHref": "#menu"
+  },
+  "hero": {
+    "eyebrow": "Japanese · Dumplings made in-house",
+    "title": "TOKYO",
+    "highlight": "DUMPLING",
+    "descriptionLines": [
+      "Crisp-bottom gyoza, noodle bowls, and stir-fries a short walk from the Esplanade —",
+      "sample copy for sales demos; confirm menu and hours with the venue before go-live."
+    ],
+    "primaryCta": {
+      "label": "Call to order",
+      "href": "tel:+61740412848"
+    },
+    "secondaryCta": { "label": "See menu", "href": "#menu" },
+    "backgroundImage": "/tokyo-dumpling/hero.jpg",
+    "meta": [
+      { "text": "Mon–Fri lunch & dinner · Sat–Sun all day (confirm online)" },
+      { "text": "The Boland Centre · 46 Lake St, Cairns City" },
+      { "text": "Take-away · Delivery via apps" }
+    ]
+  },
+  "features": [
+    {
+      "title": "Handmade dumplings",
+      "desc": "Pan-fried and steamed options — pitch your client’s hero dish here; photos are shared layout assets with the ramen demo app."
+    },
+    {
+      "title": "Noodles & rice",
+      "desc": "Ramen, udon, yakisoba, fried rice, and donburi-style plates — adjust to match real menu sections."
+    },
+    {
+      "title": "Dietary options",
+      "desc": "Use this slot to mention vegan or gluten-aware items if the venue promotes them publicly."
+    }
+  ],
+  "gallery": {
+    "eyebrow": "From the pass",
+    "title": "Gyoza, ramen & more",
+    "images": [
+      {
+        "src": "/tokyo-dumpling/food-dumplings.jpg",
+        "alt": "Pan-fried dumplings on a plate"
+      },
+      {
+        "src": "/tokyo-dumpling/food-ramen.jpg",
+        "alt": "Japanese noodle soup bowl"
+      },
+      {
+        "src": "/tokyo-dumpling/food-bowl.jpg",
+        "alt": "Plated Japanese-style dish"
+      }
+    ]
+  },
+  "menu": {
+    "sectionEyebrow": "Menu snapshot",
+    "sectionTitle": "Dumplings, noodles & combos",
+    "footerNote": "Indicative items for layout — verify names, prices, and allergens on the official menu or Facebook before publishing.",
+    "items": [
+      {
+        "name": "Pork gyoza (6pc)",
+        "desc": "House-made, pan-fried — adjust count and protein to match the venue",
+        "price": "—"
+      },
+      {
+        "name": "Steamed dumpling basket",
+        "desc": "Vegetable or mixed — placeholder line",
+        "price": "—"
+      },
+      {
+        "name": "Tonkotsu or shoyu ramen",
+        "desc": "Broth style as listed on the live menu",
+        "price": "—"
+      },
+      {
+        "name": "Yakisoba or udon",
+        "desc": "Stir-fried or soup noodles",
+        "price": "—"
+      },
+      {
+        "name": "Fried rice",
+        "desc": "Choice of protein — example line",
+        "price": "—"
+      },
+      {
+        "name": "Side salad / small plate",
+        "desc": "Optional filler row for PDF parity",
+        "price": "—"
+      }
+    ]
+  },
+  "contact": {
+    "sectionEyebrow": "Visit",
+    "sectionTitle": "Tokyo Dumpling",
+    "address": {
+      "label": "Address",
+      "lines": [
+        "The Boland Centre",
+        "46 Lake St, Cairns City QLD 4870, Australia"
+      ],
+      "mapHref": "https://www.google.com/maps/search/?api=1&query=Tokyo+Dumpling+46+Lake+St+Cairns+QLD",
+      "mapLinkLabel": "Open in maps"
+    },
+    "hours": {
+      "label": "Hours",
+      "lines": [
+        "Mon–Fri: lunch approx. 11:30am–2:30pm · dinner from approx. 5:00pm",
+        "Sat–Sun: typically all day — confirm on Facebook or call ahead"
+      ]
+    },
+    "phone": "07 4041 2848",
+    "email": "tokyodumpling4677@gmail.com",
+    "social": {
+      "facebook": "https://www.facebook.com/tokyodumplingcairns/",
+      "maps": "https://www.google.com/maps/search/?api=1&query=Tokyo+Dumpling+46+Lake+St+Cairns+QLD"
+    }
+  },
+  "reservation": {
+    "title": "Walk-ins & takeaway",
+    "subtitle": "Popular at peak times — call or message on Facebook for groups or large orders."
+  },
+  "footer": {
+    "brandLine": "Tokyo Dumpling",
+    "subLine": "Cairns · Sales demo based on public listings — always verify details with the venue before any live site.",
+    "year": 2026
+  }
+}

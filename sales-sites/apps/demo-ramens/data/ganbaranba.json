@@ -38,7 +38,7 @@
       "href": "tel:+61740312522"
     },
     "secondaryCta": { "label": "Ramen menu", "href": "#menu" },
-    "backgroundImage": "/hero.jpg",
+    "backgroundImage": "/ganbaranba/hero.jpg",
     "meta": [
       { "text": "Lunch & dinner · Closed Wednesdays" },
       { "text": "Shop 7/8, 14 Spence St, Cairns City" },
@@ -64,15 +64,15 @@
     "title": "Ramen, chashu & gyoza",
     "images": [
       {
-        "src": "/food-ramen.jpg",
+        "src": "/ganbaranba/food-ramen.jpg",
         "alt": "Tonkotsu ramen bowl with egg and chashu"
       },
       {
-        "src": "/food-chasyu.jpg",
+        "src": "/ganbaranba/food-chasyu.jpg",
         "alt": "Blistered pork chashu"
       },
       {
-        "src": "/food-gyoza.jpg",
+        "src": "/ganbaranba/food-gyoza.jpg",
         "alt": "Pan-fried gyoza"
       }
     ]
