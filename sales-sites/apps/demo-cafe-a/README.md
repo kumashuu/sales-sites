@@ -1,6 +1,6 @@
 # demo-cafe-a
 
-`NEXT_PUBLIC_SITE_KEY` で複数のカフェ向け `site.json` を切り替える、単一 Next.js アプリのデモ。
+`NEXT_PUBLIC_SITE_KEY` で複数のカフェ向け `site.json` を切り替える、単一 Next.js アプリのデモ。モノレポ全体の**環境変数の説明**は [ルート `README.md` の「環境変数一覧」](../../README.md#env-vars) を参照。
 
 DM 送付前に受信店舗ごとに「ちょっとだけカスタマイズ済み」のページを出すための運用方法です。
 

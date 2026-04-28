@@ -1,6 +1,6 @@
 # demo-salons
 
-美容室向け 1 ページ（`SiteConfig` + `SalesSite`）。`NEXT_PUBLIC_SITE_KEY` で `data/*.json` を切り替えます。
+美容室向け 1 ページ（`SiteConfig` + `SalesSite`）。`NEXT_PUBLIC_SITE_KEY` で `data/*.json` を切り替えます。モノレポ全体の**環境変数の説明**は [ルート `README.md` の「環境変数一覧」](../../README.md#env-vars) を参照。
 
 | `NEXT_PUBLIC_SITE_KEY` | ファイル | 内容 |
 | ---------------------- | -------- | ---- |
