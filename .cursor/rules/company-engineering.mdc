@@ -1,0 +1,29 @@
+---
+description: 開発（.company/engineering）。docs・設計・デバッグログ。
+globs: .company/engineering/**/*
+alwaysApply: false
+---
+
+# 開発（`.company/engineering/`）
+
+基底: `.company/engineering/CLAUDE.md`
+
+## 役割
+
+技術ドキュメント、設計書、デバッグログを管理する。
+
+## ルール（要約）
+
+- **技術ドキュメント**: `docs/topic-name.md`
+- **デバッグログ**: `debug-log/YYYY-MM-DD-issue-name.md`
+- **デバッグのステータス**: `open` → `investigating` → `resolved` → `closed`
+- **設計書**の構成: **概要** → **設計・方針** → **詳細**
+- バグ修正メモには**再発防止**セクションを必ず入れる。
+- 技術的な意思決定は `secretary/notes/` に意思決定ログとして残す。
+
+## フォルダ
+
+| パス | 用途 |
+|------|------|
+| `docs/` | 技術ドキュメント・設計書 |
+| `debug-log/` | デバッグ・調査ログ |

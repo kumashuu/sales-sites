@@ -1,0 +1,27 @@
+---
+description: リサーチ（.company/research）。市場・競合・調査トピック。
+globs: .company/research/**/*
+alwaysApply: false
+---
+
+# リサーチ（`.company/research/`）
+
+基底: `.company/research/CLAUDE.md`
+
+## 役割
+
+市場調査、競合分析、技術調査とそのまとめ。
+
+## ルール（要約）
+
+- **調査ファイル**: `topics/topic-name.md`（1トピック1ファイル）
+- **ステータス**: `planning` → `in-progress` → `completed`
+- **情報源**は必ず URL または出典を記載。
+- 調査結果に**結論**と**ネクストアクション**を必ず含める。
+- 調査完了時は**秘書の TODO**（`secretary/todos/`）に報告を追記。
+
+## フォルダ
+
+| パス | 用途 |
+|------|------|
+| `topics/` | 調査トピック |

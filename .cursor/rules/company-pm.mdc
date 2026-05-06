@@ -1,0 +1,30 @@
+---
+description: PM（.company/pm）。プロジェクト・チケット・進捗。
+globs: .company/pm/**/*
+alwaysApply: false
+---
+
+# PM（`.company/pm/`）
+
+基底: `.company/pm/CLAUDE.md`
+
+## 役割
+
+プロジェクトの立ち上げから完了まで進捗を管理する。
+
+## ルール（要約）
+
+- **プロジェクト**: `projects/project-name.md`（1プロジェクト1ファイル）
+- **チケット**: `tickets/YYYY-MM-DD-title.md`（1チケット1ファイル）
+- **プロジェクトのステータス**: `planning` → `in-progress` → `review` → `completed` → `archived`
+- **チケットのステータス**: `open` → `in-progress` → `done`
+- **チケット優先度**: `high` / `normal` / `low`
+- 新規プロジェクトには**ゴール**と**マイルストーン**を必ず定義。
+- マイルストーン完了時は**秘書の TODO**（`secretary/todos/`）に報告を追記。
+
+## フォルダ
+
+| パス | 用途 |
+|------|------|
+| `projects/` | プロジェクト管理 |
+| `tickets/` | タスクチケット |

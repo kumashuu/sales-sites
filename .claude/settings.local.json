@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Read(//Users/kuma/Dev/restaurant-template/app/**)",
+      "Bash(npx tsc:*)"
+    ]
+    }
+}

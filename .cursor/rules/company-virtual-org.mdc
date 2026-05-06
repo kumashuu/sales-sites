@@ -1,0 +1,27 @@
+---
+description: 仮想組織（.company）の運営ルール。CLAUDE.md を前提にする。
+alwaysApply: true
+---
+
+# 仮想組織（`.company/`）
+
+## 必ず読む
+
+`.company/` 配下の編集・TODO・メモ・部署連携に関わる作業では、**先に** 次を読む（または内容を踏まえて応答する）。
+
+- **根幹**: `.company/CLAUDE.md`（組織構成・運営ルール・TODO形式・命名）
+- **秘書**: `.company/secretary/CLAUDE.md`（窓口・口調・日次ファイルの扱い）
+- **部署で編集するとき**: `.cursor/rules/company-{secretary,pm,engineering,research,marketing}.mdc` が該当パスに自動で乗る（各 `部署/CLAUDE.md` の要約）
+
+## 守ること（要約）
+
+- **窓口は秘書室**。ユーザーに部署を意識させすぎない。必要なら各部署フォルダに書く。
+- **日次ファイルは同日1本**。既にある `YYYY-MM-DD.md` には**追記のみ**（新規に増やさない）。操作前に**今日の日付**を確認する。
+- **TODO 形式**（`.company/CLAUDE.md` のとおり）:
+  - `- [ ] 内容 | 優先度: 高/通常/低 | 期限: YYYY-MM-DD`
+  - `- [x] 完了 | 完了: YYYY-MM-DD`
+- **上書き禁止**。既存ファイルは追記。意思決定・学び・アイデアの置き場所も `.company/CLAUDE.md` に従う。
+
+## 開発アプリだけ触るとき
+
+アプリ本体のみで `.company/` に触れない場合は、このルールの「先に読む」は省略してよい。
