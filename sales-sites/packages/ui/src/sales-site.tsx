@@ -1,7 +1,9 @@
+import Image from "next/image";
 import type { CSSProperties } from "react";
 import type { SiteConfig } from "@sales-sites/lib";
 import { resolveAddressMapHref, telHref } from "@sales-sites/lib";
 import { ACCENT } from "./accent-tokens";
+import { HeroBackgroundSlider } from "./hero-background-slider";
 import { ReservationSocialLinks } from "./reservation-social-links";
 import { TreatmentBeforeAfter } from "./treatment-before-after";
 
@@ -97,20 +99,41 @@ export function SalesSite({ site }: { site: SiteConfig }) {
             : "fixed top-0 z-50 w-full border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md"
         }
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <div>
-            <p
-              className={
-                p
-                  ? `text-xs uppercase tracking-widest ${eyebrowTone}`
-                  : `text-xs uppercase tracking-widest ${a.text}`
-              }
-            >
-              {site.brand.locationLine}
-            </p>
-            <h1 className={`text-lg font-bold tracking-wide ${p ? "text-[var(--p-text)]" : ""}`}>
-              {site.brand.name}
-            </h1>
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
+          <div className="flex min-w-0 flex-1 items-center gap-3 md:gap-4">
+            {site.nav.logoSrc?.trim() ? (
+              <a
+                href="/"
+                className={
+                  p
+                    ? "shrink-0 outline-none focus-visible:ring-2 focus-visible:ring-[var(--p-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--p-bg)]"
+                    : `shrink-0 outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950`
+                }
+              >
+                <Image
+                  src={site.nav.logoSrc.trim()}
+                  alt={(site.nav.logoAlt ?? site.brand.name).trim()}
+                  width={180}
+                  height={72}
+                  className="h-9 w-auto max-h-10 max-w-[120px] object-contain object-left md:h-11 md:max-h-12 md:max-w-[150px]"
+                  priority
+                />
+              </a>
+            ) : null}
+            <div className="min-w-0">
+              <p
+                className={
+                  p
+                    ? `text-xs uppercase tracking-widest ${eyebrowTone}`
+                    : `text-xs uppercase tracking-widest ${a.text}`
+                }
+              >
+                {site.brand.locationLine}
+              </p>
+              <h1 className={`truncate text-lg font-bold tracking-wide ${p ? "text-[var(--p-text)]" : ""}`}>
+                {site.brand.name}
+              </h1>
+            </div>
           </div>
           {blockedDecorativeHref(site.nav.ctaHref) ? (
             <span
@@ -139,10 +162,18 @@ export function SalesSite({ site }: { site: SiteConfig }) {
       </nav>
 
       <section className="relative flex min-h-screen items-center justify-center px-6 pt-20 text-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('${site.hero.backgroundImage}')` }}
-        />
+        {site.hero.backgroundSlides && site.hero.backgroundSlides.length >= 2 ? (
+          <HeroBackgroundSlider
+            slides={site.hero.backgroundSlides}
+            intervalMs={site.hero.backgroundSlideIntervalMs ?? 5500}
+            className="absolute inset-0"
+          />
+        ) : (
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url('${site.hero.backgroundImage}')` }}
+          />
+        )}
         <div
           className={
             p

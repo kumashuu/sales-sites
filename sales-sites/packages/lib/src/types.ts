@@ -44,6 +44,10 @@ export interface SiteConfig {
   nav: {
     ctaLabel: string;
     ctaHref: string;
+    /** ヘッダー左のロゴ画像（`/public` からのパス）。省略時はテキストのみ */
+    logoSrc?: string;
+    /** ロゴの alt。省略時は `brand.name` */
+    logoAlt?: string;
   };
   hero: {
     eyebrow: string;
@@ -52,7 +56,12 @@ export interface SiteConfig {
     descriptionLines: string[];
     primaryCta: { label: string; href: string };
     secondaryCta: { label: string; href: string };
+    /** フォールバック・単一枚表示時に使用 */
     backgroundImage: string;
+    /** 2枚以上で背景が自動クロスフェード（省略時は `backgroundImage` のみ） */
+    backgroundSlides?: { src: string; alt: string }[];
+    /** 切替間隔（ms）。省略時は 5500 */
+    backgroundSlideIntervalMs?: number;
     /** 絵文字は使わない（共通設計） */
     meta: { text: string }[];
   };

@@ -1,0 +1,139 @@
+{
+  "siteKey": "phat-mushroom-demo",
+  "template": "restaurant",
+  "brand": {
+    "name": "Phat Mushroom",
+    "locationLine": "Funky eats · Psyche-friendly vibes (template)"
+  },
+  "seo": {
+    "title": "Phat Mushroom | Bold flavours & good times",
+    "description": "Sales demo: neon-night palette, mushroom-led comfort food story — swap suburb, hours, and menu for your real launch."
+  },
+  "theme": {
+    "accent": "yellow",
+    "fontPreset": "notoSansJp",
+    "palette": {
+      "background": "#0c0614",
+      "mainText": "#f7f3ff",
+      "subText": "#c4b5fd",
+      "accent": "#e879f9",
+      "secondary": "#4c1d95",
+      "highlight": "#22d3ee",
+      "accentForeground": "#1a0520"
+    }
+  },
+  "nav": {
+    "logoSrc": "/phat-mushroom/rogo.jpg",
+    "logoAlt": "Phat Mushroom",
+    "ctaLabel": "Menu",
+    "ctaHref": "#menu"
+  },
+  "hero": {
+    "eyebrow": "Your strip · Late bites & colour (example)",
+    "title": "PHAT",
+    "highlight": "MUSHROOM",
+    "descriptionLines": [
+      "Stacked bowls, melty toppings, and a room that doesn’t take itself too seriously —",
+      "placeholder copy: tune the menu story to pizza, loaded fries, or mushroom-forward mains."
+    ],
+    "primaryCta": {
+      "label": "View menu",
+      "href": "#menu"
+    },
+    "secondaryCta": { "label": "Sample picks", "href": "#menu" },
+    "backgroundImage": "/phat-mushroom/hero.jpeg",
+    "backgroundSlideIntervalMs": 6000,
+    "backgroundSlides": [
+      { "src": "/phat-mushroom/hero.jpeg", "alt": "Phat Mushroom venue and food atmosphere" },
+      { "src": "/phat-mushroom/food-toast.png", "alt": "Loaded mushroom toast on sourdough" },
+      { "src": "/phat-mushroom/food-burgur.png", "alt": "Stacked burger with melty toppings" }
+    ],
+    "meta": [
+      { "text": "Kitchen open late (example hours)" },
+      { "text": "Walk-ins welcome" },
+      { "text": "Drop your real address into site.json" }
+    ]
+  },
+  "features": [
+    {
+      "title": "Big flavour, loose mood",
+      "desc": "Use this block for your USP — umami bombs, house sauces, or a cheeky vegan line. Photos are layout stand-ins from /public/phat-mushroom/."
+    },
+    {
+      "title": "Share plates & stacks",
+      "desc": "Pitch grazing tables, loaded mushies, or slices — keep it broad until the client locks a cuisine."
+    },
+    {
+      "title": "Drinks to match the lights",
+      "desc": "One line for naturals, naturals-wine, or neon cocktails — whatever fits the venue you’re selling."
+    }
+  ],
+  "gallery": {
+    "eyebrow": "Visual energy",
+    "title": "Food that pops on camera",
+    "images": [
+      {
+        "src": "/phat-mushroom/food-toast.png",
+        "alt": "Loaded toast and toppings"
+      },
+      {
+        "src": "/phat-mushroom/food-burgur.png",
+        "alt": "Burger stack with sauce and sides"
+      },
+      {
+        "src": "/phat-mushroom/hero.jpeg",
+        "alt": "Dining mood shot"
+      }
+    ]
+  },
+  "menu": {
+    "sectionEyebrow": "Menu ideas",
+    "sectionTitle": "Mains, sides & night snacks",
+    "footerNote": "Prices and dish names are placeholders for layout only.",
+    "items": [
+      { "name": "The Phat stack", "desc": "Your signature pile-up — describe the layers", "price": "—" },
+      { "name": "Umami mushroom melt", "desc": "Melt / toast / bowl — pick the format", "price": "—" },
+      { "name": "Neon hot fries", "desc": "Loaded fries with house dust and sauce", "price": "—" },
+      { "name": "Slice or flatbread", "desc": "If pizzas are in scope, name the dough style", "price": "—" },
+      { "name": "Green sidekick salad", "desc": "Balanced add-on for tables sharing", "price": "—" },
+      { "name": "Sweet finish", "desc": "Dessert line or delete if not offered", "price": "—" }
+    ]
+  },
+  "contact": {
+    "sectionEyebrow": "Contact",
+    "sectionTitle": "Find the room with the glow",
+    "address": {
+      "label": "Address (placeholder)",
+      "lines": [
+        "Laneway / precinct / street number (example)",
+        "Suburb, State & postcode, Country"
+      ],
+      "showMapLink": true
+    },
+    "hours": {
+      "label": "Hours (replace with yours)",
+      "lines": [
+        "Thu – Sun: lunch + late (example)",
+        "Mon – Wed: closed or soft trade — set real hours"
+      ]
+    },
+    "phone": "00 0000 0000",
+    "showCallButton": true,
+    "decorativeContactLinks": true,
+    "email": "hello@example.com",
+    "social": {
+      "instagram": "https://example.com/instagram",
+      "facebook": "https://example.com/facebook",
+      "maps": "https://example.com/maps"
+    }
+  },
+  "reservation": {
+    "title": "Bookings & take-away",
+    "subtitle": "Layout-only buttons: links stay decorative in this build — flip off when you wire real contacts."
+  },
+  "footer": {
+    "brandLine": "Phat Mushroom (template)",
+    "subLine": "Neon psyche palette demo — replace copy, palette fine-tuning, and images before any live URL. Assets: /public/phat-mushroom/.",
+    "year": 2026
+  }
+}
