@@ -1,8 +1,0 @@
-node_modules/
-.env
-.env.*
-!.env.example
-gcp-sa-key.json
-*-sa-key.json
-data/runs/*.json
-!data/runs/.gitkeep
