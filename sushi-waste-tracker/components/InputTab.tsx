@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   TIME_SLOTS,
   currentSlot,
+  formatAud,
   slotLabel,
   todayStr,
   WEEKDAY_LABELS,
@@ -55,15 +56,28 @@ export default function InputTab() {
     [menu, activeCat],
   );
 
-  const setQty = (id: string, value: number) => {
-    setQuantities((prev) => ({ ...prev, [id]: Math.max(0, value) }));
-    setMessage("");
-  };
+  const priceMap = useMemo(() => {
+    const m: Record<string, number> = {};
+    for (const c of menu) for (const it of c.items) m[it.id] = it.priceAud;
+    return m;
+  }, [menu]);
+
+  const itemAmount = (id: string) =>
+    (quantities[id] ?? 0) * (priceMap[id] ?? 0);
 
   const categoryTotal = (cat: CategoryDTO) =>
     cat.items.reduce((sum, it) => sum + (quantities[it.id] ?? 0), 0);
 
+  const categoryAmount = (cat: CategoryDTO) =>
+    cat.items.reduce((sum, it) => sum + itemAmount(it.id), 0);
+
   const grandTotal = menu.reduce((s, c) => s + categoryTotal(c), 0);
+  const grandAmount = menu.reduce((s, c) => s + categoryAmount(c), 0);
+
+  const setQty = (id: string, value: number) => {
+    setQuantities((prev) => ({ ...prev, [id]: Math.max(0, value) }));
+    setMessage("");
+  };
 
   const handleSave = async () => {
     setSaving(true);
@@ -76,7 +90,11 @@ export default function InputTab() {
         quantity: quantities[id] ?? 0,
       }));
       await saveEntries({ date, slot, entries });
-      setMessage("保存しました");
+      setMessage(
+        grandAmount > 0
+          ? `保存しました（${formatAud(grandAmount)}）`
+          : "保存しました",
+      );
       setTimeout(() => setMessage(""), 2500);
     } catch (e) {
       setError(String(e));
@@ -121,12 +139,21 @@ export default function InputTab() {
             </button>
           ))}
         </div>
+        {grandTotal > 0 && (
+          <div className="flex items-center justify-between rounded-lg bg-white border border-rose-200 px-3 py-2">
+            <span className="text-xs text-stone-500">この時間帯の廃棄</span>
+            <span className="text-sm font-bold text-rose-800 tabular-nums">
+              {grandTotal} 個 / {formatAud(grandAmount)}
+            </span>
+          </div>
+        )}
       </div>
 
       {/* カテゴリ（ジャンル）タブ */}
       <div className="flex gap-2 overflow-x-auto px-4 py-3 -mx-0">
         {menu.map((c) => {
           const t = categoryTotal(c);
+          const a = categoryAmount(c);
           return (
             <button
               key={c.slug}
@@ -146,7 +173,7 @@ export default function InputTab() {
                       : "bg-rose-100 text-rose-800"
                   }`}
                 >
-                  {t}
+                  {t}個 {formatAud(a)}
                 </span>
               )}
             </button>
@@ -158,6 +185,7 @@ export default function InputTab() {
       <div className="px-4 space-y-2">
         {activeCategory?.items.map((it) => {
           const q = quantities[it.id] ?? 0;
+          const amt = itemAmount(it.id);
           return (
             <div
               key={it.id}
@@ -165,7 +193,17 @@ export default function InputTab() {
                 q > 0 ? "border-rose-300" : "border-stone-200"
               }`}
             >
-              <span className="text-base font-medium">{it.name}</span>
+              <div className="min-w-0">
+                <span className="text-base font-medium">{it.name}</span>
+                <p className="text-xs text-stone-400 tabular-nums">
+                  {formatAud(it.priceAud)}/個
+                  {q > 0 && (
+                    <span className="ml-2 font-semibold text-rose-700">
+                      → {formatAud(amt)}
+                    </span>
+                  )}
+                </p>
+              </div>
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => setQty(it.id, q - 1)}
@@ -211,7 +249,9 @@ export default function InputTab() {
             ? "保存中…"
             : message
               ? message
-              : `この時間帯を保存（合計 ${grandTotal} 個）`}
+              : grandTotal > 0
+                ? `この時間帯を保存（${grandTotal}個 / ${formatAud(grandAmount)}）`
+                : "この時間帯を保存"}
         </button>
       </div>
     </div>
