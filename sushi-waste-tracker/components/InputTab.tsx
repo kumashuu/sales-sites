@@ -29,6 +29,10 @@ export default function InputTab() {
   const [date, setDate] = useState<string>(() => todayStr());
   const [slot, setSlot] = useState<number>(() => currentSlot());
   const [quantities, setQuantities] = useState<Record<string, number>>({});
+  /** サーバー保存済みの値（変更検知の基準） */
+  const [savedQuantities, setSavedQuantities] = useState<
+    Record<string, number>
+  >({});
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<string>("");
@@ -44,13 +48,22 @@ export default function InputTab() {
       .finally(() => setLoading(false));
   }, []);
 
+  const applyServerEntries = useCallback(
+    (entries: { menuItemId: string; quantity: number }[]) => {
+      const q = buildQuantities(menu, entries);
+      setQuantities(q);
+      setSavedQuantities(q);
+    },
+    [menu],
+  );
+
   const loadEntries = useCallback(() => {
     if (menu.length === 0) return;
     setMessage("");
     fetchEntries(date, slot)
-      .then((res) => setQuantities(buildQuantities(menu, res.entries)))
+      .then((res) => applyServerEntries(res.entries))
       .catch((e) => setError(String(e)));
-  }, [date, slot, menu]);
+  }, [date, slot, menu, applyServerEntries]);
 
   useEffect(() => {
     loadEntries();
@@ -65,6 +78,20 @@ export default function InputTab() {
     cat.items.reduce((sum, it) => sum + (quantities[it.id] ?? 0), 0);
 
   const grandTotal = menu.reduce((s, c) => s + categoryTotal(c), 0);
+
+  const isChanged = (id: string) =>
+    (quantities[id] ?? 0) !== (savedQuantities[id] ?? 0);
+
+  const changedCount = useMemo(
+    () =>
+      menu
+        .flatMap((c) => c.items)
+        .filter(
+          (it) =>
+            (quantities[it.id] ?? 0) !== (savedQuantities[it.id] ?? 0),
+        ).length,
+    [menu, quantities, savedQuantities],
+  );
 
   const setQty = (id: string, value: number) => {
     setQuantities((prev) => ({ ...prev, [id]: Math.max(0, value) }));
@@ -85,9 +112,8 @@ export default function InputTab() {
       await saveEntries({ date, slot, entries });
       setMessage("保存しました");
       setTimeout(() => setMessage(""), 2500);
-      // 保存後にサーバー値を再取得して表示を同期
       const res = await fetchEntries(date, slot);
-      setQuantities(buildQuantities(menu, res.entries));
+      applyServerEntries(res.entries);
     } catch (e) {
       setError(String(e));
     } finally {
@@ -171,11 +197,14 @@ export default function InputTab() {
       <div className="px-4 space-y-2">
         {activeCategory?.items.map((it) => {
           const q = quantities[it.id] ?? 0;
+          const changed = isChanged(it.id);
           return (
             <div
               key={it.id}
-              className={`flex items-center justify-between rounded-xl border bg-white px-4 py-3 ${
-                q > 0 ? "border-rose-300" : "border-stone-200"
+              className={`flex items-center justify-between rounded-xl border bg-white px-4 py-3 transition-colors ${
+                changed
+                  ? "border-rose-500 ring-1 ring-rose-200"
+                  : "border-stone-200"
               }`}
             >
               <span className="text-base font-medium">{it.name}</span>
@@ -225,7 +254,9 @@ export default function InputTab() {
             ? "保存中…"
             : message
               ? message
-              : `この時間帯を保存（合計 ${grandTotal} 個）`}
+              : changedCount > 0
+                ? `保存（${changedCount}件変更 / 合計 ${grandTotal} 個）`
+                : `この時間帯を保存（合計 ${grandTotal} 個）`}
         </button>
       </div>
     </div>
