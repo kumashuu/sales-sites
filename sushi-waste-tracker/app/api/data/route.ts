@@ -1,8 +1,14 @@
 import { prisma } from "@/lib/prisma";
 import { weekdayIndexFromDate } from "@/lib/config";
-import type { DailyRow, RawRow } from "@/lib/types";
+import type {
+  CategoryBreakdownDaily,
+  DailyRow,
+  ItemBreakdown,
+  RawRow,
+} from "@/lib/types";
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+const round2 = (n: number) => Math.round(n * 100) / 100;
 
 // GET /api/data?view=raw|daily&start=YYYY-MM-DD&end=YYYY-MM-DD
 export async function GET(request: Request) {
@@ -24,6 +30,7 @@ export async function GET(request: Request) {
       menuItem: {
         select: {
           name: true,
+          priceAud: true,
           category: { select: { name: true } },
         },
       },
@@ -38,31 +45,62 @@ export async function GET(request: Request) {
       categoryName: r.menuItem.category.name,
       menuName: r.menuItem.name,
       quantity: r.quantity,
+      priceAud: r.menuItem.priceAud,
+      amount: round2(r.quantity * r.menuItem.priceAud),
     }));
     return Response.json({ view: "raw", rows: raw });
   }
 
-  // 日次集計（分析用のクリーンなデータ）
   const dailyMap = new Map<string, DailyRow>();
+
   for (const r of rows) {
+    const q = r.quantity;
+    const amt = q * r.menuItem.priceAud;
+    const catName = r.menuItem.category.name;
+    const menuName = r.menuItem.name;
+
     let row = dailyMap.get(r.date);
     if (!row) {
       row = {
         date: r.date,
         weekday: weekdayIndexFromDate(r.date),
         total: 0,
+        totalAmount: 0,
         byCategory: {},
       };
       dailyMap.set(r.date, row);
     }
-    row.total += r.quantity;
-    const cat = r.menuItem.category.name;
-    row.byCategory[cat] = (row.byCategory[cat] ?? 0) + r.quantity;
+    row.total += q;
+    row.totalAmount += amt;
+
+    if (!row.byCategory[catName]) {
+      row.byCategory[catName] = { quantity: 0, amount: 0, items: [] };
+    }
+    const cat = row.byCategory[catName];
+    cat.quantity += q;
+    cat.amount += amt;
+
+    let item = cat.items.find((i) => i.menuName === menuName);
+    if (!item) {
+      item = { menuName, quantity: 0, amount: 0 };
+      cat.items.push(item);
+    }
+    item.quantity += q;
+    item.amount += amt;
   }
 
-  const daily = [...dailyMap.values()].sort((a, b) =>
-    b.date.localeCompare(a.date),
-  );
+  // 金額を丸め、商品を廃棄数降順でソート
+  const daily = [...dailyMap.values()]
+    .map((row) => {
+      row.totalAmount = round2(row.totalAmount);
+      for (const cat of Object.values(row.byCategory)) {
+        cat.amount = round2(cat.amount);
+        cat.items.sort((a, b) => b.quantity - a.quantity);
+        for (const it of cat.items) it.amount = round2(it.amount);
+      }
+      return row;
+    })
+    .sort((a, b) => b.date.localeCompare(a.date));
 
   return Response.json({ view: "daily", rows: daily });
 }

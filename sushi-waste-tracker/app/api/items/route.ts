@@ -1,8 +1,9 @@
 import { prisma } from "@/lib/prisma";
+import { DEFAULT_PRICE_AUD } from "@/lib/config";
 
-// メニュー作成 body: { categoryId, name }
+// メニュー作成 body: { categoryId, name, priceAud? }
 export async function POST(request: Request) {
-  let body: { categoryId?: string; name?: string };
+  let body: { categoryId?: string; name?: string; priceAud?: number };
   try {
     body = await request.json();
   } catch {
@@ -31,7 +32,15 @@ export async function POST(request: Request) {
   const sortOrder = (max._max.sortOrder ?? -1) + 1;
 
   const item = await prisma.menuItem.create({
-    data: { name, categoryId, sortOrder },
+    data: {
+      name,
+      categoryId,
+      sortOrder,
+      priceAud:
+        typeof body.priceAud === "number" && body.priceAud >= 0
+          ? body.priceAud
+          : DEFAULT_PRICE_AUD,
+    },
   });
 
   return Response.json(item, { status: 201 });

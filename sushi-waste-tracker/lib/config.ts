@@ -70,3 +70,11 @@ export function recentRange(
   s.setDate(s.getDate() - (days - 1));
   return { start: todayStr(s), end };
 }
+
+/// デフォルト単価（AUD）
+export const DEFAULT_PRICE_AUD = 5;
+
+/// AUD 金額の表示（例: $12.50）
+export function formatAud(amount: number): string {
+  return `$${amount.toFixed(2)}`;
+}

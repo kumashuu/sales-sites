@@ -24,6 +24,7 @@ model Category {
 model MenuItem {
   id         String       @id @default(cuid())
   name       String
+  priceAud   Float        @default(5) // 単価（AUD）。廃棄額 = quantity × priceAud
   categoryId String
   category   Category     @relation(fields: [categoryId], references: [id], onDelete: Cascade)
   sortOrder  Int          @default(0)

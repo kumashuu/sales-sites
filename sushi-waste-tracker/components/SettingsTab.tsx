@@ -213,13 +213,28 @@ function ItemRow({
 }) {
   const [editing, setEditing] = useState(false);
   const [name, setName] = useState(item.name);
+  const [price, setPrice] = useState(String(item.priceAud));
 
   const save = async () => {
     setEditing(false);
-    if (name.trim() && name.trim() !== item.name) {
-      await run(() => updateItem(item.id, { name: name.trim() }));
+    const updates: { name?: string; priceAud?: number } = {};
+    if (name.trim() && name.trim() !== item.name) updates.name = name.trim();
+    const p = parseFloat(price);
+    if (!isNaN(p) && p >= 0 && p !== item.priceAud) updates.priceAud = p;
+    if (Object.keys(updates).length > 0) {
+      await run(() => updateItem(item.id, updates));
     } else {
       setName(item.name);
+      setPrice(String(item.priceAud));
+    }
+  };
+
+  const savePrice = async () => {
+    const p = parseFloat(price);
+    if (!isNaN(p) && p >= 0 && p !== item.priceAud) {
+      await run(() => updateItem(item.id, { priceAud: p }));
+    } else {
+      setPrice(String(item.priceAud));
     }
   };
 
@@ -242,18 +257,33 @@ function ItemRow({
           onChange={(e) => setName(e.target.value)}
           onBlur={save}
           onKeyDown={(e) => e.key === "Enter" && save()}
-          className="flex-1 rounded border border-stone-300 px-2 py-1 text-base"
+          className="flex-1 rounded border border-stone-300 px-2 py-1 text-base min-w-0"
         />
       ) : (
         <button
           onClick={() => setEditing(true)}
-          className={`flex-1 text-left text-base ${
+          className={`flex-1 text-left text-base min-w-0 truncate ${
             item.active ? "text-stone-800" : "text-stone-400 line-through"
           }`}
         >
           {item.name}
         </button>
       )}
+
+      {/* 単価（AUD） */}
+      <div className="flex items-center gap-0.5 shrink-0">
+        <span className="text-xs text-stone-400">$</span>
+        <input
+          type="number"
+          inputMode="decimal"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+          onBlur={savePrice}
+          onKeyDown={(e) => e.key === "Enter" && savePrice()}
+          className="w-14 rounded border border-stone-300 px-1.5 py-1 text-sm text-right tabular-nums"
+          aria-label="単価 AUD"
+        />
+      </div>
 
       {/* 有効/無効トグル */}
       <button

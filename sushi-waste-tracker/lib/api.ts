@@ -87,7 +87,7 @@ export function createItem(categoryId: string, name: string) {
 
 export function updateItem(
   id: string,
-  data: { name?: string; active?: boolean; sortOrder?: number },
+  data: { name?: string; active?: boolean; sortOrder?: number; priceAud?: number },
 ) {
   return jsonFetch(`/api/items/${id}`, {
     method: "PATCH",

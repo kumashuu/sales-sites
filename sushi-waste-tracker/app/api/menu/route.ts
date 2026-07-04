@@ -21,6 +21,7 @@ export async function GET() {
       id: i.id,
       name: i.name,
       sortOrder: i.sortOrder,
+      priceAud: i.priceAud,
     })),
   }));
 

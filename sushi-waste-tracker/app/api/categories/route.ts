@@ -18,6 +18,7 @@ export async function GET() {
       name: i.name,
       sortOrder: i.sortOrder,
       active: i.active,
+      priceAud: i.priceAud,
     })),
   }));
 

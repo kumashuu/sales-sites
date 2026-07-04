@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import { DEFAULT_PRICE_AUD } from "../lib/config";
 
 const prisma = new PrismaClient();
 
@@ -72,11 +73,16 @@ async function main() {
       if (existing) {
         await prisma.menuItem.update({
           where: { id: existing.id },
-          data: { sortOrder: i, active: true },
+          data: { sortOrder: i, active: true, priceAud: DEFAULT_PRICE_AUD },
         });
       } else {
         await prisma.menuItem.create({
-          data: { name, categoryId: category.id, sortOrder: i },
+          data: {
+            name,
+            categoryId: category.id,
+            sortOrder: i,
+            priceAud: DEFAULT_PRICE_AUD,
+          },
         });
       }
     }

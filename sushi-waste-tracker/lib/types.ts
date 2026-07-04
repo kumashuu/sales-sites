@@ -4,6 +4,7 @@ export type MenuItemDTO = {
   id: string;
   name: string;
   sortOrder: number;
+  priceAud: number;
 };
 
 export type CategoryDTO = {
@@ -20,6 +21,7 @@ export type AdminMenuItem = {
   name: string;
   sortOrder: number;
   active: boolean;
+  priceAud: number;
 };
 
 export type AdminCategory = {
@@ -49,6 +51,22 @@ export type RawRow = {
   categoryName: string;
   menuName: string;
   quantity: number;
+  priceAud: number;
+  amount: number;
+};
+
+/// 日次集計: 商品別内訳
+export type ItemBreakdown = {
+  menuName: string;
+  quantity: number;
+  amount: number;
+};
+
+/// 日次集計: ジャンル別内訳（商品別を含む）
+export type CategoryBreakdownDaily = {
+  quantity: number;
+  amount: number;
+  items: ItemBreakdown[];
 };
 
 /// 日次集計データの1行（分析用のクリーンなデータ）
@@ -56,20 +74,35 @@ export type DailyRow = {
   date: string;
   weekday: number; // 0=日 ... 6=土
   total: number;
-  byCategory: Record<string, number>;
+  totalAmount: number;
+  byCategory: Record<string, CategoryBreakdownDaily>;
 };
 
-export type MonthlyPoint = { period: string; total: number };
-export type YearlyPoint = { period: string; total: number };
+export type MonthlyPoint = {
+  period: string;
+  total: number;
+  amount: number;
+};
+export type YearlyPoint = {
+  period: string;
+  total: number;
+  amount: number;
+};
 export type WeekdayPoint = {
   weekday: number;
   label: string;
   total: number;
-  days: number; // 対象日数
-  avg: number; // 1日あたり平均
+  amount: number;
+  days: number;
+  avg: number;
+  avgAmount: number;
 };
 
-export type CategoryBreakdown = { name: string; total: number };
+export type CategoryBreakdown = {
+  name: string;
+  total: number;
+  amount: number;
+};
 
 export type AnalyticsResponse = {
   monthly: MonthlyPoint[];
@@ -77,6 +110,7 @@ export type AnalyticsResponse = {
   weekday: WeekdayPoint[];
   byCategory: CategoryBreakdown[];
   totalCount: number;
+  totalAmount: number;
   rangeStart: string | null;
   rangeEnd: string | null;
 };
