@@ -1,4 +1,5 @@
 import type {
+  AdminCategory,
   AnalyticsResponse,
   CategoryDTO,
   DailyRow,
@@ -48,6 +49,54 @@ export function fetchAnalytics(params: {
   if (params.category) qs.set("category", params.category);
   const q = qs.toString();
   return jsonFetch<AnalyticsResponse>(`/api/analytics${q ? `?${q}` : ""}`);
+}
+
+// ---- メニュー管理（設定タブ） ----
+
+export function fetchAdminCategories(): Promise<AdminCategory[]> {
+  return jsonFetch<AdminCategory[]>("/api/categories");
+}
+
+export function createCategory(name: string) {
+  return jsonFetch("/api/categories", {
+    method: "POST",
+    body: JSON.stringify({ name }),
+  });
+}
+
+export function updateCategory(
+  id: string,
+  data: { name?: string; sortOrder?: number },
+) {
+  return jsonFetch(`/api/categories/${id}`, {
+    method: "PATCH",
+    body: JSON.stringify(data),
+  });
+}
+
+export function deleteCategory(id: string) {
+  return jsonFetch(`/api/categories/${id}`, { method: "DELETE" });
+}
+
+export function createItem(categoryId: string, name: string) {
+  return jsonFetch("/api/items", {
+    method: "POST",
+    body: JSON.stringify({ categoryId, name }),
+  });
+}
+
+export function updateItem(
+  id: string,
+  data: { name?: string; active?: boolean; sortOrder?: number },
+) {
+  return jsonFetch(`/api/items/${id}`, {
+    method: "PATCH",
+    body: JSON.stringify(data),
+  });
+}
+
+export function deleteItem(id: string) {
+  return jsonFetch(`/api/items/${id}`, { method: "DELETE" });
 }
 
 export function fetchData(

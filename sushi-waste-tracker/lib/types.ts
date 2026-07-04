@@ -14,6 +14,22 @@ export type CategoryDTO = {
   items: MenuItemDTO[];
 };
 
+/// 管理画面用（無効なメニューも含む）
+export type AdminMenuItem = {
+  id: string;
+  name: string;
+  sortOrder: number;
+  active: boolean;
+};
+
+export type AdminCategory = {
+  id: string;
+  slug: string;
+  name: string;
+  sortOrder: number;
+  items: AdminMenuItem[];
+};
+
 export type EntryDTO = {
   menuItemId: string;
   quantity: number;
