@@ -4,7 +4,6 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   TIME_SLOTS,
   currentSlot,
-  formatAud,
   slotLabel,
   todayStr,
   WEEKDAY_LABELS,
@@ -12,6 +11,17 @@ import {
 } from "@/lib/config";
 import { fetchEntries, fetchMenu, saveEntries } from "@/lib/api";
 import type { CategoryDTO } from "@/lib/types";
+
+/** メニュー全件を 0 で初期化し、サーバー保存値で上書きする */
+function buildQuantities(
+  menu: CategoryDTO[],
+  entries: { menuItemId: string; quantity: number }[],
+): Record<string, number> {
+  const q: Record<string, number> = {};
+  for (const c of menu) for (const it of c.items) q[it.id] = 0;
+  for (const e of entries) q[e.menuItemId] = e.quantity;
+  return q;
+}
 
 export default function InputTab() {
   const [menu, setMenu] = useState<CategoryDTO[]>([]);
@@ -22,9 +32,8 @@ export default function InputTab() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<string>("");
-  const [error, setError] = useState<string>("");
+  const [error, setError] = useState("");
 
-  // メニュー読込
   useEffect(() => {
     fetchMenu()
       .then((cats) => {
@@ -35,17 +44,13 @@ export default function InputTab() {
       .finally(() => setLoading(false));
   }, []);
 
-  // 日付/スロット変更時に入力値を読込
   const loadEntries = useCallback(() => {
+    if (menu.length === 0) return;
     setMessage("");
     fetchEntries(date, slot)
-      .then((res) => {
-        const q: Record<string, number> = {};
-        for (const e of res.entries) q[e.menuItemId] = e.quantity;
-        setQuantities(q);
-      })
+      .then((res) => setQuantities(buildQuantities(menu, res.entries)))
       .catch((e) => setError(String(e)));
-  }, [date, slot]);
+  }, [date, slot, menu]);
 
   useEffect(() => {
     loadEntries();
@@ -56,23 +61,10 @@ export default function InputTab() {
     [menu, activeCat],
   );
 
-  const priceMap = useMemo(() => {
-    const m: Record<string, number> = {};
-    for (const c of menu) for (const it of c.items) m[it.id] = it.priceAud;
-    return m;
-  }, [menu]);
-
-  const itemAmount = (id: string) =>
-    (quantities[id] ?? 0) * (priceMap[id] ?? 0);
-
   const categoryTotal = (cat: CategoryDTO) =>
     cat.items.reduce((sum, it) => sum + (quantities[it.id] ?? 0), 0);
 
-  const categoryAmount = (cat: CategoryDTO) =>
-    cat.items.reduce((sum, it) => sum + itemAmount(it.id), 0);
-
   const grandTotal = menu.reduce((s, c) => s + categoryTotal(c), 0);
-  const grandAmount = menu.reduce((s, c) => s + categoryAmount(c), 0);
 
   const setQty = (id: string, value: number) => {
     setQuantities((prev) => ({ ...prev, [id]: Math.max(0, value) }));
@@ -84,18 +76,18 @@ export default function InputTab() {
     setMessage("");
     setError("");
     try {
-      const allItemIds = menu.flatMap((c) => c.items.map((i) => i.id));
-      const entries = allItemIds.map((id) => ({
-        menuItemId: id,
-        quantity: quantities[id] ?? 0,
-      }));
-      await saveEntries({ date, slot, entries });
-      setMessage(
-        grandAmount > 0
-          ? `保存しました（${formatAud(grandAmount)}）`
-          : "保存しました",
+      const entries = menu.flatMap((c) =>
+        c.items.map((it) => ({
+          menuItemId: it.id,
+          quantity: quantities[it.id] ?? 0,
+        })),
       );
+      await saveEntries({ date, slot, entries });
+      setMessage("保存しました");
       setTimeout(() => setMessage(""), 2500);
+      // 保存後にサーバー値を再取得して表示を同期
+      const res = await fetchEntries(date, slot);
+      setQuantities(buildQuantities(menu, res.entries));
     } catch (e) {
       setError(String(e));
     } finally {
@@ -111,7 +103,6 @@ export default function InputTab() {
 
   return (
     <div className="pb-28">
-      {/* 日付・スロット選択 */}
       <div className="sticky top-14 z-10 bg-stone-100/95 backdrop-blur border-b border-stone-200 px-4 py-3 space-y-3">
         <div className="flex items-center gap-2">
           <input
@@ -139,21 +130,17 @@ export default function InputTab() {
             </button>
           ))}
         </div>
-        {grandTotal > 0 && (
-          <div className="flex items-center justify-between rounded-lg bg-white border border-rose-200 px-3 py-2">
-            <span className="text-xs text-stone-500">この時間帯の廃棄</span>
-            <span className="text-sm font-bold text-rose-800 tabular-nums">
-              {grandTotal} 個 / {formatAud(grandAmount)}
-            </span>
-          </div>
-        )}
+        <div className="flex items-center justify-between rounded-lg bg-white border border-stone-200 px-3 py-2">
+          <span className="text-xs text-stone-500">この時間帯の廃棄</span>
+          <span className="text-sm font-bold text-rose-800 tabular-nums">
+            {grandTotal} 個
+          </span>
+        </div>
       </div>
 
-      {/* カテゴリ（ジャンル）タブ */}
       <div className="flex gap-2 overflow-x-auto px-4 py-3 -mx-0">
         {menu.map((c) => {
           const t = categoryTotal(c);
-          const a = categoryAmount(c);
           return (
             <button
               key={c.slug}
@@ -165,27 +152,25 @@ export default function InputTab() {
               }`}
             >
               {c.name}
-              {t > 0 && (
-                <span
-                  className={`ml-1.5 rounded-full px-1.5 py-0.5 text-xs ${
-                    activeCat === c.slug
-                      ? "bg-white/25"
-                      : "bg-rose-100 text-rose-800"
-                  }`}
-                >
-                  {t}個 {formatAud(a)}
-                </span>
-              )}
+              <span
+                className={`ml-1.5 rounded-full px-1.5 py-0.5 text-xs tabular-nums ${
+                  activeCat === c.slug
+                    ? "bg-white/25"
+                    : t > 0
+                      ? "bg-rose-100 text-rose-800"
+                      : "bg-stone-100 text-stone-400"
+                }`}
+              >
+                {t}
+              </span>
             </button>
           );
         })}
       </div>
 
-      {/* メニュー数量入力 */}
       <div className="px-4 space-y-2">
         {activeCategory?.items.map((it) => {
           const q = quantities[it.id] ?? 0;
-          const amt = itemAmount(it.id);
           return (
             <div
               key={it.id}
@@ -193,17 +178,7 @@ export default function InputTab() {
                 q > 0 ? "border-rose-300" : "border-stone-200"
               }`}
             >
-              <div className="min-w-0">
-                <span className="text-base font-medium">{it.name}</span>
-                <p className="text-xs text-stone-400 tabular-nums">
-                  {formatAud(it.priceAud)}/個
-                  {q > 0 && (
-                    <span className="ml-2 font-semibold text-rose-700">
-                      → {formatAud(amt)}
-                    </span>
-                  )}
-                </p>
-              </div>
+              <span className="text-base font-medium">{it.name}</span>
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => setQty(it.id, q - 1)}
@@ -216,9 +191,11 @@ export default function InputTab() {
                 <input
                   type="number"
                   inputMode="numeric"
-                  value={q === 0 ? "" : q}
-                  placeholder="0"
-                  onChange={(e) => setQty(it.id, Math.floor(Number(e.target.value) || 0))}
+                  min={0}
+                  value={q}
+                  onChange={(e) =>
+                    setQty(it.id, Math.floor(Number(e.target.value) || 0))
+                  }
                   className="w-12 text-center text-lg font-semibold tabular-nums bg-transparent"
                 />
                 <button
@@ -238,7 +215,6 @@ export default function InputTab() {
         <p className="px-4 pt-4 text-sm text-red-600 break-all">{error}</p>
       )}
 
-      {/* 保存バー（画面下・ボトムナビの上） */}
       <div className="fixed bottom-16 inset-x-0 z-20 px-4 py-3 bg-gradient-to-t from-stone-100 via-stone-100 to-transparent">
         <button
           onClick={handleSave}
@@ -249,9 +225,7 @@ export default function InputTab() {
             ? "保存中…"
             : message
               ? message
-              : grandTotal > 0
-                ? `この時間帯を保存（${grandTotal}個 / ${formatAud(grandAmount)}）`
-                : "この時間帯を保存"}
+              : `この時間帯を保存（合計 ${grandTotal} 個）`}
         </button>
       </div>
     </div>
